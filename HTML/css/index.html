@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .menuItem {
+            color: black;
+            border-bottom: solid 1px orange;
+            text-decoration: none;
+            list-style-type: none;
+            padding: 0px;
+        }
+
+        .myList {
+            color: green;
+            list-style-type: none;
+        }
+
+        #singleItem {
+            color: red;
+            list-style-type: none;
+        }
+
+        .myList:hover {
+            background-color: aquamarine;
+        }
+
+        span {
+            color: blueviolet;
+        }
+
+        .onceUpon::first-letter {
+            font-size: 40px;
+            font-style: italic;
+            color: blue
+        }
+
+        .onceUpon:hover {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li class="menuItem">menu item #1</li>
+        <li class="menuItem">menu item #2</li>
+        <li class="menuItem">menu item #3</li>
+    </ul>
+    <ol>
+        <li class="myList">item 1</li>
+        <li class="myList">item 2</li>
+        <li class="myList">item 3</li>
+        <li class="myList">item 4</li>
+        <li id="singleItem">item 5</li>
+    </ol>
+
+    <div>
+        my name is <span>Zeev Mindali</span>
+    </div>
+    <div class="onceUpon">
+        In a far far away galaxy...
+    </div>
+</body>
+
+</html>

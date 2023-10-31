@@ -1,0 +1,35 @@
+body {
+    background-color: cadetblue;
+}
+
+.keyPad {
+    border: 1px solid white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.keyPad td {
+    padding: 10px;
+    color: white;
+    background-color: brown;
+}
+
+.keyPad td:hover {
+    color: brown;
+    background-color: white;
+}
+
+.ofek {
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    background-color: lightcyan;
+}
+
+.ofek tr:nth-child(even) {
+    background-color: lightblue;
+}
+
+.ofek tr:nth-child(odd) {
+    background-color: lightgreen;
+}

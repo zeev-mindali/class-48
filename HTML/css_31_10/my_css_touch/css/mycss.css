@@ -1,0 +1,36 @@
+body {
+    background-color: bisque;
+}
+
+h1 {
+    text-align: center;
+}
+
+div::first-letter {
+    font-weight: bolder;
+    font-size: larger;
+    text-transform: uppercase;
+}
+
+.loginBox {
+    text-align: center;
+    border: 1px solid black;
+    width: 25%;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 5px 5px 5px grey;
+}
+
+input {
+    padding: 5px;
+}
+
+.loginHeader {
+    color: rgb(99, 9, 9);
+    text-transform: uppercase;
+}
+
+.inputText:hover {
+    background-color: yellow;
+}

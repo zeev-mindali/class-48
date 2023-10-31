@@ -1,0 +1,22 @@
+h1 {
+    color: red;
+}
+
+.highLight {
+    background-color: yellow;
+    font-weight: bolder;
+    color: red;
+}
+
+.numberHighlight {
+    font-weight: bolder;
+    color: green;
+}
+
+#confirm {
+    background-color: rgb(212, 228, 87);
+}
+
+#reject {
+    background-color: rgb(255, 3, 3);
+}

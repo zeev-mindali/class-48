@@ -1,0 +1,63 @@
+#one>button:first-child {
+    background-color: red;
+}
+
+#one>button:last-child {
+    background-color: greenyellow;
+}
+
+#one>button:nth-child(2) {
+    background-color: maroon;
+}
+
+#two>button:nth-child(odd) {
+    background-color: cyan;
+}
+
+#two>button:nth-child(even) {
+    background-color: yellow;
+}
+
+#three>button:nth-child(3n+1) {
+    background-color: tomato;
+}
+
+#three>button:nth-child(2) {
+    background-color: yellow;
+}
+
+#four>button:not(:hover) {
+    opacity: 0.5;
+}
+
+#four>button:active {
+    font-weight: bolder;
+}
+
+.five>button:not(:hover) {
+    border: 1px solid red;
+}
+
+#six>button[name=ilan] {
+    background: blue;
+    color: bisque
+}
+
+#six>button[name=semyon] {
+    border: 2px double red;
+}
+
+.cup {
+    border: 1px dashed black;
+    border-radius: 10px;
+    text-align: center;
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 5px 5px 5px 2px black;
+}
+
+.cup h1 {
+    color: red;
+    font-weight: bolder;
+}

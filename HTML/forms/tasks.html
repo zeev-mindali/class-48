@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta description="this is my awesome task manager, feel free to use it...">
+    <meta keywords="task, manger, wife">
+    <!---meta http-equiv="refresh" content="2;url=https://www.johnbryce.co.il" /-->
+    <meta http-equiv="refresh" content="600" />
+    <title>My Tasks</title>
+    <style>
+        * {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>add new task</h1>
+    <hr />
+    <form>
+        <input type="text" placeholder="Task name" required /><br /><br />
+        <select>
+            <option>when you have time</option>
+            <option>need to do</option>
+            <option>Urgent!!!</option>
+            <option>Now or the Soffa</option>
+        </select><br /><br />
+        <input type="radio" name="taskPriority" checked />when you have time
+        <input type="radio" name="taskPriority" />need to do
+        <input type="radio" name="taskPriority" />Urgent!!!
+        <input type="radio" name="taskPriority" />Now or the Soffa
+        <br /><br />
+        <input type="date" /><br /><br />
+        <textarea placeholder="enter comments" cols="50" rows="3"></textarea>
+        <br /><br />
+        <input type="submit" value="submit" />
+        <input type="reset" value="reset" />
+    </form>
+</body>
+
+</html>
