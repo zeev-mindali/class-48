@@ -1,0 +1,29 @@
+figure {
+    margin-left: auto;
+    margin-right: auto;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    background-color: ghostwhite;
+    box-shadow: inset -30px -30px 150px 50px black;
+}
+
+.red {
+    box-shadow: inset -30px -30px 150px 50px red;
+}
+
+.yellow {
+    box-shadow: inset -30px -30px 150px 50px rgb(79, 79, 6);
+}
+
+.green {
+    box-shadow: inset -30px -30px 150px 50px rgb(2, 39, 2);
+}
+
+.ramzorBody {
+    background-color: black;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
