@@ -1,0 +1,15 @@
+body {
+    text-align: center;
+}
+
+input:valid[type=password] {
+    background-color: cornflowerblue;
+}
+
+input:invalid[type=password] {
+    background-color: red;
+}
+
+input {
+    margin-bottom: 10px;
+}
