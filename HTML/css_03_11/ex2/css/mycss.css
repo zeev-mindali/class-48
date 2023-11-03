@@ -1,0 +1,17 @@
+li[data-dir=up] {
+    list-style-image: url("../images/up.png");
+
+}
+
+li[data-dir=down] {
+    list-style-image: url("../images/down.png");
+
+}
+
+span[data-dir=up] {
+    color: green;
+}
+
+span[data-dir=down] {
+    color: red;
+}
