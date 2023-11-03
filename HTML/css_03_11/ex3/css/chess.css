@@ -1,0 +1,30 @@
+table {
+    border-collapse: collapse;
+}
+
+table,
+tr,
+td {
+    border: 1px solid black;
+}
+
+table {
+    margin: auto;
+}
+
+td {
+    width: 10vh;
+    height: 10vh;
+}
+
+tr:nth-of-type(even) td:nth-of-type(odd),
+tr:nth-of-type(odd) td:nth-of-type(even) {
+    color: white;
+    background-color: white;
+}
+
+tr:nth-of-type(even) td:nth-of-type(even),
+tr:nth-of-type(odd) td:nth-of-type(odd) {
+    color: black;
+    background-color: black;
+}
