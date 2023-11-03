@@ -1,3 +1,7 @@
+body {
+    direction: rtl;
+}
+
 input,
 select {
     margin-bottom: 20px;
