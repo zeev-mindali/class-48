@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/car.css" />
 </head>
+
 <body>
     <!--
        בנו טופס לקליטת רכב חדש למגרש המכוניות
@@ -22,5 +25,25 @@
        עיצוב נוסף לפי בחירה אישית
        טופס ממורכז, השדות מוצמדים לימין
     -->
+    <form>
+        <h1>New car</h1>
+        <hr />
+        <select required>
+            <option>gasoline</option>
+            <option>Solar</option>
+            <option>Hybrid</option>
+            <option>Electric</option>
+        </select><br />
+        <input type="number" placeholder="Km" required /><br />
+        <input type="number" placeholder="Hand" required><br />
+        <input type="number" placeholder="Year" required><br />
+        <input type="text" placeholder="Manufacturer" required /><br />
+        <input type="text" placeholder="model" required><br />
+        <div class="formButtons">
+            <input type="submit" value="Submit" />
+            <input type="reset" value="reset" />
+        </div>
+    </form>
 </body>
+
 </html>

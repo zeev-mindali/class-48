@@ -1,0 +1,44 @@
+input,
+select {
+    margin-bottom: 20px;
+}
+
+input[type=number]:hover,
+input[type=text]:hover,
+select:hover {
+    border: 3px solid red;
+    background-color: yellow;
+}
+
+select,
+input {
+    padding: 10px;
+}
+
+form {
+    width: 25vw;
+    border: 1px solid black;
+    box-shadow: 10px 10px 3px -5px black;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.formButtons {
+    padding: 20px;
+    text-align: center;
+}
+
+input:invalid[type=number],
+input:invalid[type=text] {
+    background-color: red;
+}
+
+input:valid[type=number],
+input:valid[type=text] {
+    background-color: greenyellow;
+}
