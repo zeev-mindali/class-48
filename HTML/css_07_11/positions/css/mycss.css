@@ -1,0 +1,46 @@
+kbd {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+}
+
+.static {
+    position: static;
+    border: 3px solid #73ad21;
+    width: 50vh;
+}
+
+.relative {
+    position: relative;
+    width: 50vh;
+    left: 30px;
+    top: 30px;
+    border: 3px solid #009fff;
+}
+
+.absolute {
+    position: absolute;
+    top: 20px;
+    right: 100px;
+    width: 300px;
+    height: 20px;
+    border: 3px solid red;
+}
+
+.fixed {
+    position: fixed;
+    top: 120px;
+    right: 30px;
+    width: 300px;
+    height: 20px;
+    border: 3px solid fuchsia;
+}
+
+.sticky {
+    position: sticky;
+    position: -webkit-sticky;
+    /* safari */
+    right: 20px;
+    bottom: 20px;
+    background-color: green;
+    border: 2px solid #4caf50;
+}

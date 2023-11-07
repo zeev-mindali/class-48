@@ -1,0 +1,46 @@
+/* הגדרת המסך הראשי */
+html,
+body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    font-style: italic;
+    color: wheat;
+    background-image: linear-gradient(-45deg, purple, rgb(25, 4, 66));
+    direction: ltr;
+}
+
+.layout {
+    height: 100%;
+    /* let do some grid for ofek :) */
+    box-sizing: border-box;
+    /* fix css size bug/feature */
+    display: grid;
+    grid-template-rows: 15% 80% 5%;
+    /* grid-template-columns: 16% 16% 16% 16% 16% 16%; */
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.layout>header,
+.layout>footer {
+    grid-column: span 6;
+    /* מיזוג תאים  */
+}
+
+.layout>main {
+    grid-column: span 5;
+    padding: 30px;
+}
+
+.layout,
+.layout>* {
+    border: 1px solid white;
+}
+
+.roundBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 40px;
+}
