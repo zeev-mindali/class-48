@@ -1,0 +1,66 @@
+html,
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    background-color: black;
+}
+
+div {
+    flex: 50%;
+}
+
+@keyframes redAnim {
+    50% {
+        /*background-color: red;*/
+        opacity: 1;
+    }
+
+    50% {
+        /*background-color: black;*/
+        opacity: .2;
+
+    }
+}
+
+@keyframes blueAnim {
+    50% {
+        /* background-color: blue; */
+        opacity: 1;
+    }
+
+    50% {
+        /* background-color: black; */
+        opacity: .2;
+    }
+}
+
+#red {
+    background-color: red;
+    animation-name: redAnim;
+    animation-duration: 1s;
+    /* הפעלת אנימציה 5 פעמים
+        animation-iteration-count: 5
+    */
+    animation-iteration-count: infinite;
+    /* השהיית תחילת האנימציה
+       animation-delay : 5s
+    */
+}
+
+#blue {
+    background-color: blue;
+
+    animation-name: blueAnim;
+    animation-duration: 1s;
+    /* הפעלת אנימציה 5 פעמים
+        animation-iteration-count: 5
+    */
+    animation-iteration-count: infinite;
+    /* השהיית תחילת האנימציה
+       animation-delay : 5s
+    */
+    animation-delay: 500ms;
+}
