@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["myscss.scss","elements/background.scss","elements/button.scss","elements/div.scss"],"names":[],"mappings":"AAAA;AAGA;AAGA;AAIA;EACI,aCXK;EDYL,WCVS;EDWT,OCZM;EDaN,kBCVS;;;ADab;EACI,OCfM;;;ADkBV;EACI,kBEtBe;EFuBf,OEtBS;EFuBT,WEtBa;EFuBb,YEtBc;;;AFyBlB;EACI,kBG3BY;EH4BZ,QG9BQ;EH+BR,OG9BW","file":"mystyle.css"}

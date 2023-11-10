@@ -1,0 +1,33 @@
+/* input types */
+input {
+  color: red;
+  background-color: yellow;
+  padding: 5px;
+  margin: 10px;
+  color: red;
+  background-color: bisque;
+}
+
+input[type=button] {
+  background-color: rgb(149, 239, 149);
+}
+
+/* div types */
+.loginBox {
+  border: solid black 1px;
+  box-shadow: 5px 5px 2px 2px gray;
+  text-align: center;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*
+    zeevMindaliFromQiryatYam      => camel case
+    zeev_mindali_from_qiryat_yam  => underline
+*/
+body {
+  text-align: center;
+}
+
+/*# sourceMappingURL=mycss.css.map */

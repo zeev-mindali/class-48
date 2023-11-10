@@ -1,20 +1,11 @@
 /* the background design */
-$myFont: Helvetica, sans-serif;
-$myColor: bisque;
-$myFontSize: 32px;
-$myWidth: 400px;
-$backGround: grey;
+@import "elements/background";
 
 /* button design */
-$buttonBackground: green;
-$buttonText: red;
-$buttonFontSize: 20px;
-$buttonTopMargin: 200px;
+@import "elements/button";
 
 /* div */
-$divBorder: 1px solid rgb(255, 0, 174);
-$divTextColor: white;
-$divBackground: black;
+@import "elements/div";
 
 
 body {

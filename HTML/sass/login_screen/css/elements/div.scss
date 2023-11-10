@@ -1,0 +1,19 @@
+$border : solid black 1px;
+$borderShadow : 5px 5px 2px 2px gray;
+$textAlign : center;
+$width : 400px;
+$margin : auto;
+
+.loginBox {
+    border: $border;
+    box-shadow: $borderShadow;
+    text-align: $textAlign;
+    width: $width;
+    margin-left: $margin;
+    margin-right: $margin;
+}
+
+/*
+    zeevMindaliFromQiryatYam      => camel case
+    zeev_mindali_from_qiryat_yam  => underline
+*/

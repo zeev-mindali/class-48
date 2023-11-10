@@ -13,8 +13,8 @@ body {
 }
 
 input[type=button] {
-  background-color: green;
-  color: red;
+  background-color: rgb(26, 133, 183);
+  color: rgb(238, 109, 109);
   font-size: 20px;
   margin-top: 200px;
 }

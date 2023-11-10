@@ -1,0 +1,26 @@
+$padding :5px;
+$margin: 10px;
+$color: red;
+$background: bisque;
+
+$textColor: red;
+$textBackground: yellow;
+
+$loginBackground : rgb(149, 239, 149);
+
+@mixin importantText {
+    color: $textColor;
+    background-color: $textBackground;
+}
+
+input {
+    @include importantText;
+    padding: $padding;
+    margin: $margin;
+    color: $color;
+    background-color: $background;
+}
+
+input[type=button] {
+    background-color: $loginBackground;
+}
