@@ -1,0 +1,28 @@
+/* the background design */
+/* button design */
+/* div */
+body {
+  font-family: Helvetica, sans-serif;
+  font-size: 32px;
+  color: bisque;
+  background-color: grey;
+}
+
+#container {
+  width: 400px;
+}
+
+input[type=button] {
+  background-color: green;
+  color: red;
+  font-size: 20px;
+  margin-top: 200px;
+}
+
+div {
+  background-color: black;
+  border: 1px solid rgb(255, 0, 174);
+  color: white;
+}
+
+/*# sourceMappingURL=mystyle.css.map */

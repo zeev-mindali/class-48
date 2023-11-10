@@ -1,0 +1,42 @@
+/* the background design */
+$myFont: Helvetica, sans-serif;
+$myColor: bisque;
+$myFontSize: 32px;
+$myWidth: 400px;
+$backGround: grey;
+
+/* button design */
+$buttonBackground: green;
+$buttonText: red;
+$buttonFontSize: 20px;
+$buttonTopMargin: 200px;
+
+/* div */
+$divBorder: 1px solid rgb(255, 0, 174);
+$divTextColor: white;
+$divBackground: black;
+
+
+body {
+    font-family: $myFont;
+    font-size: $myFontSize;
+    color: $myColor;
+    background-color: $backGround;
+}
+
+#container {
+    width: $myWidth
+}
+
+input[type=button] {
+    background-color: $buttonBackground;
+    color: $buttonText;
+    font-size: $buttonFontSize;
+    margin-top: $buttonTopMargin;
+}
+
+div {
+    background-color: $divBackground;
+    border: $divBorder;
+    color: $divTextColor;
+}
