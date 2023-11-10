@@ -1,0 +1,51 @@
+body {
+  text-align: center;
+  background-color: bisque;
+  color: rgb(67, 144, 67);
+}
+
+h1 {
+  color: red;
+}
+
+.todoList {
+  border: 1px solid rgb(35, 25, 13);
+  box-shadow: 5px 5px 2px 2px rgb(135, 87, 29);
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
+
+input[type=text],
+input[type=date] {
+  background-color: rgb(74, 74, 40);
+  color: bisque;
+}
+
+input[type=text]::placeholder,
+input[type=date]::placeholder {
+  color: rgb(194, 173, 146);
+}
+
+input[type=button] {
+  background-color: rgb(118, 238, 118);
+  color: black;
+}
+
+input {
+  margin-right: 20px;
+}
+
+table {
+  border-spacing: 10px;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.taskIcon {
+  width: 30%;
+}
+
+/*# sourceMappingURL=mycss.css.map */

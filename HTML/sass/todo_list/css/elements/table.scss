@@ -1,0 +1,13 @@
+$tableSpacing : 10px;
+$tableCollapse : collapse;
+
+table {
+    border-spacing: $tableSpacing;
+    border-collapse: $tableCollapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.taskIcon {
+    width: 30%;
+}

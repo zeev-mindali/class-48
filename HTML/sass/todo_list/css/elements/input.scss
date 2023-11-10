@@ -1,0 +1,26 @@
+$buttonBackground: rgb(118, 238, 118);
+$buttonTextColor: black;
+$inputBackground: rgb(74, 74, 40);
+$inputTextColor: bisque;
+$inputSpacing: 20px;
+$placeholderColor : rgb(194, 173, 146);
+
+input[type=text],
+input[type=date] {
+    background-color: $inputBackground;
+    color: $inputTextColor;
+}
+
+input[type=text]::placeholder,
+input[type=date]::placeholder {
+    color: $placeholderColor;
+}
+
+input[type=button] {
+    background-color: $buttonBackground;
+    color: $buttonTextColor;
+}
+
+input {
+    margin-right: $inputSpacing;
+}

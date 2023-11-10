@@ -1,0 +1,27 @@
+$textPosition : center;
+$siteBackground: bisque;
+$siteTextColor: rgb(67, 144, 67);
+$bannerColor : red;
+$border : 1px solid rgb(35, 25, 13);
+$borderShadow: 5px 5px 2px 2px rgb(135, 87, 29);
+$todoWidth: 400px;
+$todoPadding: 20px;
+
+body {
+    text-align: $textPosition;
+    background-color: $siteBackground;
+    color: $siteTextColor;
+}
+
+h1 {
+    color: $bannerColor;
+}
+
+.todoList {
+    border: $border;
+    box-shadow: $borderShadow;
+    width: $todoWidth;
+    margin-left: auto;
+    margin-right: auto;
+    padding: $todoPadding;
+}
