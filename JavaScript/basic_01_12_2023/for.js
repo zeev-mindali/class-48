@@ -6,7 +6,7 @@ for (var counter=0;counter<howManyTimes;counter++){
 */
 var userInput = prompt ("how many numbers");
 var temp = 2;
-for (var counter=1;counter<=userInput;counter++){
+for (var counter=0;counter<userInput;counter++){
     console.log(temp);
     temp *= 2;
 }
