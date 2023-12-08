@@ -1,31 +1,50 @@
-var taskNameList = [];
-var taskDateList = [];
-var taskDoneList = [];
-
-const addTask = ()=>{
-    var taskName = document.getElementById("taskName").value;
-    var taskDate = document.getElementById("taskDate").value;
-    newTask(taskName,taskDate);
-    createTable();
+var tasks = JSON.parse(localStorage.getItem("myTasks"));
+if (tasks == null){
+    var tasks = [];
 }
+createTable();
 
-const newTask = (taskName,taskDate)=>{
-    taskNameList.push(taskName);
-    taskDateList.push(taskDate);
-    taskDoneList.push(false);
-}
-
-const createTable = ()=>{
-    var result = `<table border="1" cellSpacing="0">`;    
-    for (var index=0;index<taskNameList.length;index++){       
+function createTable(){
+    var result = `<table border="1" cellSpacing="0" style="margin-left:auto;margin-right:auto">`;    
+    for (var index=0;index<tasks.length;index++){       
         result += `
             <tr>
-                <td>${taskNameList[index]}</td>
-                <td>${taskDateList[index]}</td>
-                <td><input type="checkbox" ${taskDoneList[index]?"checked":""}/></td>
+                <td>${tasks[index].taskName}</td>
+                <td>${tasks[index].taskDate}</td>
+                <td><input type="checkbox" ${tasks[index].taskDone?"checked":""}/></td>
             </tr>
         `;
     }
     result+="</table>" 
     document.getElementById("taskList").innerHTML = result;
+}
+
+//c'tor
+function Tasks(taskName,taskDate,taskDone){
+    this.taskName=taskName;
+    this.taskDate=taskDate;
+    this.taskDone=taskDone;
+
+    this.taskIsDone = function(){
+        this.taskDone=true;
+    }
+}
+
+const saveTasks = ()=>{
+    localStorage.setItem("myTasks",JSON.stringify(tasks));
+}
+
+const addTask = ()=>{
+    var taskName = document.getElementById("taskName").value;
+    var taskDate = document.getElementById("taskDate").value;
+    tasks.push(new Tasks(taskName,taskDate,false));
+    createTable();
+    saveTasks();
+}
+
+
+const clearTasks = ()=>{
+    localStorage.removeItem("myTasks")
+    tasks=[];
+    createTable();
 }

@@ -10,7 +10,7 @@
             text-align: center;
         }
     </style>
-    <script src="workworkwork.js"></script>
+    <script defer src="workworkwork.js"></script>
 </head>
 
 <body>
@@ -18,7 +18,8 @@
     <hr />
     <input type="text" placeholder="new task" id="taskName" /><br /><br />
     <input type="date" id="taskDate" /><br /><br />
-    <input type="button" value="add task" onclick="addTask()" />
+    <input type="button" value="add task" onclick="addTask()" /><br /><br />
+    <input type="button" value="clear all tasks" onclick="clearTasks()" />
     <hr />
     <div id="taskList"></div>
 </body>
