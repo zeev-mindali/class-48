@@ -1,7 +1,7 @@
 var allCars = [];
 //for injection the site......
 var carSite = document.getElementById("carSite");
-var carInfo = "";
+//var carInfo = "";
 var carEndPoint = "https://data.gov.il/api/3/action/datastore_search?resource_id=053cea08-09bc-40ec-8f7a-156f0677aff3&q=";
 // var mySite = `
 //     <form id="carForm">
@@ -25,19 +25,19 @@ var carEndPoint = "https://data.gov.il/api/3/action/datastore_search?resource_id
 // `;
 
 var mySite = `
-    <form id="carForm">
+    <form id="carForm" action="javascript:addCar()">
         <h1>Car Info</h1><hr/>
-        <input type="text" id="carNumber" placeholder="car number"/>
+        <input type="text" id="carNumber" placeholder="car number" required/>
         <input type="button" id="btnObject" value="get car info"/>
         <br/><br/>
-        <input type="text" placeholder="manufacturer" disabled/><br/><br/>
-        <input type="text" placeholder="model" disabled/><br/><br/>
-        <input type="text" placeholder="color" disabled/><br/><br/>
-        <input type="text" placeholder="gasoline" disabled/><br/><br/>
-        <input type="text" placeholder="year" disabled/><br/><br/>
-        <input type="text" placeholder="nextTest" disabled/><br/><br/>
-        <input type="number" placeholder="km"/><br/><br/>
-        <input type="button" value="add car" id="addCar"/>
+        <input type="text" placeholder="manufacturer" id="manufacturer" disabled/><br/><br/>
+        <input type="text" placeholder="model" id="model" disabled/><br/><br/>
+        <input type="text" placeholder="color" id="color" disabled/><br/><br/>
+        <input type="text" placeholder="gasoline" id="gasoline" disabled/><br/><br/>
+        <input type="text" placeholder="year" id="year" disabled/><br/><br/>
+        <input type="text" placeholder="nextTest" id="nextTest" disabled/><br/><br/>
+        <input type="number" placeholder="km" id="km" required/><br/><br/>
+        <input type="submit" value="add car" id="addCar"/>
         <input type="reset" value="reset form"/>
     </form>
     <hr/>
@@ -48,9 +48,33 @@ var mySite = `
 carSite.innerHTML = mySite;
 
 //add button event
-document.getElementById("addCar").addEventListener("click",()=>{
-    console.log(addCarData(document.getElementById("carNumber").value))
-})
+// document.getElementById("addCar").addEventListener("click",()=>{
+//     //check if car not exists and validate
+//     if (validateCar()){
+//         alert ("missing data....");
+//         return;
+//     }
+//     addCarData(carInfo);
+//     allCars.push(carInfo);    
+//     document.getElementById("carForm").reset();
+//     createTable();
+// })
+
+const addCar =()=>{
+    //check if car not exists and validate
+    if (validateCar()){
+        alert("car already exists");
+    }
+    addCarData(carInfo);
+    allCars.push(carInfo);    
+    createTable();
+    document.getElementById("carForm").reset();
+}
+
+const validateCar = ()=>{
+    //check if object is already exists    
+    
+}
 
 //add get car info from json object
 // document.getElementById("btnObject").addEventListener("click",()=>{
@@ -63,12 +87,17 @@ document.getElementById("addCar").addEventListener("click",()=>{
 document.getElementById("btnObject").addEventListener("click",async ()=>{
     //wait until we will get an answer for the api server
     carInfo = await getCarAPI(document.getElementById("carNumber").value);
-    console.log(carInfo);
     updateFields(carInfo);
 })
 
 const updateFields = (myInfo)=>{
     //console.log(myInfo);
+    document.getElementById("manufacturer").value = myInfo.tozeret_nm;
+    document.getElementById("model").value = myInfo.kinuy_mishari;
+    document.getElementById("color").value = myInfo.tzeva_rechev;
+    document.getElementById("year").value = myInfo.shnat_yitzur;
+    document.getElementById("gasoline").value = myInfo.sug_delek_nm;
+    document.getElementById("nextTest").value = niceDate(myInfo.tokef_dt);
 }
 
 //tell the computer that we will using asynchronicity function
@@ -86,6 +115,7 @@ const createTable = ()=>{
                 <th>car number</th>
                 <th>manufacturer</th>
                 <th>model</th>
+                <th>year</th>
                 <th>color</th>
                 <th>gasoline</th>
                 <th>test</th>
@@ -106,17 +136,18 @@ const createTable = ()=>{
 }
 
 //get single car row in table
-const addCarData = (carObject)=>{   
-    document.getElementById("carForm").reset();
+const addCarData = (carObject)=>{  
+    carObject.km = document.getElementById("km").value;     
     return `
         <tr>
             <td>${carObject.mispar_rechev}</td>
             <td>${carObject.tozeret_nm}</td>
             <td>${carObject.kinuy_mishari}</td>
+            <td>${carObject.shnat_yitzur}</td>
             <td>${carObject.tzeva_rechev}</td>
             <td>${carObject.sug_delek_nm}</td>
             <td>${niceDate(carObject.tokef_dt)}</td>
-            <td>km</td>
+            <td>${carObject.km}</td>
         </tr>
     `;
 }
