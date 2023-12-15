@@ -28,7 +28,6 @@ var mySite = `
     <form id="carForm" action="javascript:addCar()">
         <h1>Car Info</h1><hr/>
         <input type="text" id="carNumber" placeholder="car number" required/>
-        <input type="button" id="btnObject" value="get car info"/>
         <br/><br/>
         <input type="text" placeholder="manufacturer" id="manufacturer" disabled/><br/><br/>
         <input type="text" placeholder="model" id="model" disabled/><br/><br/>
@@ -37,6 +36,9 @@ var mySite = `
         <input type="text" placeholder="year" id="year" disabled/><br/><br/>
         <input type="text" placeholder="nextTest" id="nextTest" disabled/><br/><br/>
         <input type="number" placeholder="km" id="km" required/><br/><br/>
+        <input type="text" placeholder="url image" /><input type="button" value="add image"/>
+        <div id="carImages"></div>
+        <br/><br/>
         <input type="submit" value="add car" id="addCar"/>
         <input type="reset" value="reset form"/>
     </form>
@@ -62,18 +64,25 @@ carSite.innerHTML = mySite;
 
 const addCar =()=>{
     //check if car not exists and validate
-    if (validateCar()){
+    if (validateCar(document.getElementById("carNumber").value)){
         alert("car already exists");
+        return;
     }
+    carInfo.km = document.getElementById("km").value;
     addCarData(carInfo);
     allCars.push(carInfo);    
     createTable();
     document.getElementById("carForm").reset();
 }
 
-const validateCar = ()=>{
+const validateCar = (carNumber)=>{
     //check if object is already exists    
-    
+    for (var index=0;index<allCars.length;index++){
+        if (allCars[index].mispar_rechev==carNumber){
+            return true;
+        }
+    }
+    return false;
 }
 
 //add get car info from json object
@@ -84,7 +93,7 @@ const validateCar = ()=>{
 //     createTable();
 // })
 
-document.getElementById("btnObject").addEventListener("click",async ()=>{
+document.getElementById("carNumber").addEventListener("focusout",async ()=>{
     //wait until we will get an answer for the api server
     carInfo = await getCarAPI(document.getElementById("carNumber").value);
     updateFields(carInfo);
@@ -110,7 +119,7 @@ const getCarAPI= async(carNumber)=>{
 //create table :)
 const createTable = ()=>{
     var tableHeader = `
-        <table>
+        <table border="1" cellspacing="0">
             <tr>
                 <th>car number</th>
                 <th>manufacturer</th>
@@ -137,7 +146,7 @@ const createTable = ()=>{
 
 //get single car row in table
 const addCarData = (carObject)=>{  
-    carObject.km = document.getElementById("km").value;     
+         
     return `
         <tr>
             <td>${carObject.mispar_rechev}</td>
