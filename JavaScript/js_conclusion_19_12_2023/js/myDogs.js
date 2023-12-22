@@ -1,4 +1,6 @@
 const dogURL = "http://random.dog/woof.json";
+const duckURL = "https://random-d.uk/api/random";
+
 var dogImg = document.getElementById("dogImg")
 // setInterval(async () => {
 //     const dogData = await fetch(dogURL);
@@ -9,7 +11,7 @@ var dogImg = document.getElementById("dogImg")
 
 
 setInterval(() => {
-    fetch(dogURL).then((jsonObject)=>{
+    fetch(duckURL).then((jsonObject)=>{
         jsonObject.json().then((jsonData)=>{
             dogImg.src = jsonData.url;
         })

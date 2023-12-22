@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remember me</title>
+    <script src="js/remmberMe.js"></script>
+    <link href="css/remmberMe.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1>my exam</h1>
+    <form class="myForm" id="myForm">
+        <h2>Add occasion</h2>
+        <hr />
+        <input type="text" id="occasionName" placeholder="please enter occasion name" required /><br /><br />
+        <input type="number" id="minPrice" placeholder="please enter minimum price" required /><br /><br />
+        <input type="number" id="maxPrice" placeholder="please enter maximum price" required /><br /><br />
+        <select id="occasionType" required>
+            <option>Anniversary</option>
+            <option>Birthday</option>
+            <option>Brit</option>
+            <option>Bar/Bat mitzva</option>
+        </select><br /><br />
+        <input type="url" id="imgUrl" placeholder="please enter url address" required /><br /><br />
+        <input type="date" id="occasionDate" /><br /><br />
+        <input type="button" value="add event" onclick="addEvent()" />
+        <input type="button" value="reset form" onclick="resetForm()" />
+    </form>
+    <hr />
+    <table cellpading="0" border="1" id="myTable">
+
+    </table>
+</body>
+
+</html>
