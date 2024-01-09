@@ -14,5 +14,16 @@ function func2() {
   //console.log(counter); <== error not defined
 }
 
-func2();
+//func2();
 //console.log(counter); <== error not defined
+
+function setLetAndVar() {
+  let a = 4;
+  {
+    let a = 6;
+    console.log(a);
+  }
+  console.log(a);
+}
+
+setLetAndVar();
