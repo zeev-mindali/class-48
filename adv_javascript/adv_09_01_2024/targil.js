@@ -25,7 +25,7 @@ const checkCar = async (carNumber) => {
       let URLtimeout = setTimeout(() => {
         reject("time out");
       }, 10 * 1000);
-      fetch(carDataURL + carNumber).then((response) => {
+      let data = fetch(carDataURL + carNumber).then((response) => {
         clearTimeout(URLtimeout);
         resolve(response);
       });
