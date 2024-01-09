@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My CallBack</title>
+</head>
+
+<body>
+    <button id="btn">click</button>
+    <script>
+        const clickCallback = (eventush) => {
+            //console.log("i am the code the running after the click event"); 
+            console.log(eventush);
+        }
+        // document.getElementById("btn").addEventListener("click", function myNameIsCallback() {
+        //     alert("i am the code the running after the click event"); ''
+        // })
+        // document.getElementById("btn").addEventListener("click", ()=>{
+        //     alert("i am the code the running after the click event"); ''
+        // })
+        document.getElementById("btn").addEventListener("click", clickCallback)
+        console.log("i run first");
+
+
+    </script>
+</body>
+
+</html>
