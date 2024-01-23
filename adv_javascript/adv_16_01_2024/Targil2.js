@@ -86,3 +86,4 @@ console.log(cat.drinkMilk(cow) ? "yammmy milk" : "She is dead !!!!!!!");
 lion.eat(cow);
 console.log(cat.drinkMilk(cow) ? "yammmy milk" : "She is dead !!!!!!!");
 console.log(dog.getSound);
+console.log(dog.sound);

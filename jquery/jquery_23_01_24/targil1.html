@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>targil 1 jquery</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <style>
+        * {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>name 1</li>
+        <li>name 2</li>
+        <li>name 3</li>
+        <li>name 4</li>
+        <li>name 5</li>
+    </ul>
+
+    <script>
+        const names = ["Zeev", "Ilan", "Matti", "Yarden", "Achmed"];
+        const getRandomName = () => {
+            const index = Math.floor(Math.random() * names.length);
+            return names[index];
+        }
+        $(() => {
+            for (let counter = 0; counter < 5; counter++) {
+                $("li").eq(counter).html(getRandomName());
+            }
+        })
+    </script>
+</body>
+
+</html>
