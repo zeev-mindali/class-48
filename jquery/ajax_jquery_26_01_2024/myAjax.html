@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+
+    </table>
+    <script>
+        $.get("https://restcountries.com/v3.1/all",
+            (data) => showCountries(data),
+            "json"
+        )
+
+        const showCountries = (data) => {
+            for (let counter = 0; counter < 10; counter++) {
+                $("table").append(`
+                    <tr>
+                        <td><img src="${data[counter].flags.png}" width=50/></td>
+                        <td>${data[counter].name.common}</td>
+                        <td>${data[counter].capital}</td>
+                        <td>${data[counter].population}</td>
+                    </tr>
+                `)
+            }
+        }
+    </script>
+</body>
+
+</html>

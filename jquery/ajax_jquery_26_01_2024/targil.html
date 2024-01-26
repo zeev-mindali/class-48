@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <title>Targil</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <table></table>
+
+    <script>
+        // let myObject = new Object();
+        // myObject["gabriel"] = "10";
+
+        // console.log(myObject.gabriel);
+        // console.log(myObject.zeev);
+
+        $.get("https://restcountries.com/v3.1/all",
+            (data) => showPopulation(data),
+            "json"
+        )
+
+        const showPopulation = (data) => {
+            let statistics = new Object();
+            console.log(data[0]);
+            // console.log(data[0].name.common);
+            // console.log(data[0].region);
+            // console.log(data[0].population)
+            for (let index = 0; index < data.length; index++) {
+                if (statistics[data[index].subregion] == undefined) {
+                    statistics[data[index].subregion] = data[index].population;
+                } else {
+                    statistics[data[index].subregion] += data[index].population;
+                }
+            }
+            console.log(statistics);
+        }
+    </script>
+</body>
+
+</html>
