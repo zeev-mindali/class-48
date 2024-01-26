@@ -49,13 +49,13 @@
         }
 
         const displayStatistics = (data) => {
-            for (item in data) {
-                //key   -> item
-                //value -> console.log(data[item]);
+            for (subRegion in data) {
+                //key   -> subRegion
+                //value -> console.log(data[subRegion]);
                 $("table").append(`
                     <tr>
-                        <td>${item}</td>
-                        <td>${data[item]}</td>
+                        <td>${subRegion}</td>
+                        <td>${data[subRegion]}</td>
                     </tr>
                 `);
             }
