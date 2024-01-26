@@ -45,6 +45,21 @@
                 }
             }
             console.log(statistics);
+            displayStatistics(statistics);
+        }
+
+        const displayStatistics = (data) => {
+            for (item in data) {
+                //key   -> item
+                //value -> console.log(data[item]);
+                $("table").append(`
+                    <tr>
+                        <td>${item}</td>
+                        <td>${data[item]}</td>
+                    </tr>
+                `);
+            }
+
         }
     </script>
 </body>
