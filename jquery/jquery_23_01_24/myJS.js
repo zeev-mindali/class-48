@@ -19,4 +19,9 @@ $(() => {
     }
     isDark = !isDark;
   });
+  $("ul").hide();
+  $("#showHide").on("click", () => {
+    //$("ul").slideToggle("slow");
+    $("ul").animate()
+  });
 });
