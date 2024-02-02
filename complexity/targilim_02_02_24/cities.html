@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cities</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>how much streets in each city</h1><hr/>
+    <table border=1 cellspacing="collapse">
+        <thead>
+            <tr>
+                <td>
+                    city
+                </td>
+                <td>
+                    total streets
+                </td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        const total = 60835;
+        let url = `https://data.gov.il/api/3/action/datastore_search?resource_id=9ad3862c-8391-4b2f-84a4-2d4c68625f4b&limit=${total}`
+        let cities = [];
+        $.get(url,(data)=>{
+            let citiesData = data.result.records;
+            //console.log("data:",citiesData);
+            //O(n)
+            citiesData.forEach(item => {                
+                if (cities[item["שם_ישוב"]]==undefined){                    
+                    cities[item["שם_ישוב"]]=1;
+                } else {
+                    cities[item["שם_ישוב"]]+=1;
+                }
+            });
+            //console.log(cities);
+           for (city in cities){
+              // console.log(city);
+               $("tbody").append(`
+                    <tr>
+                        <td>
+                            ${city}
+                        </td>
+                        <td>
+                            ${cities[city]}
+                        </td>
+                    </tr>
+               `);
+           }
+        })
+    </script>
+</body>
+</html>

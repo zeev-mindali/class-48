@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+
+    <title>Corona</title>
+    <style>
+      body {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Cornona data</h1>
+    <table border="1" cellspacing="collapse">
+      <thead>
+        <tr>
+          <td>Positive</td>
+          <td>Negative</td>
+          <td>In Work</td>
+          <td>Error</td>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+      const totalRecords = 8000;
+      let positive = 0;
+      let negative = 0;
+      let inWork = 0;
+      let dataError = 0;
+      const url = `https://data.gov.il/api/3/action/datastore_search?resource_id=a9588029-8dd6-4c6f-b4ff-e8ca6413642f&limit=${totalRecords}`;
+      $.get(url, (data) => {
+        let records = data.result.records;
+        console.log(records.length);
+        //O(n)
+        for (let counter = 0; counter < records.length; counter++) {
+            console.log(records[counter].corona_result);
+          switch (records[counter].corona_result) {
+            case "חיובי":
+              positive++;
+              break;
+            case "שלילי":
+              negative++;
+              break;
+            case "בעבודה":
+              inWork++;
+              break;
+            default:
+              dataError++;
+          }
+        }
+        //write to table O(1)
+        $("tbody").append(`
+            <tr>
+                <td>${positive}</td>
+                <td>${negative}</td>
+                <td>${inWork}</td>
+                <td>${dataError}</td>
+            </tr>
+        `);
+      });
+    </script>
+  </body>
+</html>
