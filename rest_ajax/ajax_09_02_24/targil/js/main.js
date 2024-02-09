@@ -21,28 +21,30 @@ $(() => {
 */
 
 const checkData=(data)=>{
-    let tableData = "";
+    tableOther = "";        
     //O(n)
     for (let index=0;index<data.length;index++){
-        tableData += `
+        //we still need to check something :)
+        if (data[index].sumcandidates==1){
+            //console.log("one candidate:\n",data[index])
+            document.dispatchEvent(new CustomEvent('event:one',{detail: data[index]}));
+        }
+        else if (data[index].sumcandidates>=5){
+            //console.log("many candidates",data[index])
+            document.dispatchEvent(new CustomEvent('event:many',{detail:data[index]}));
+        } else {
+            tableOther += `
             <tr>
                 <td>${fixList(data[index].candidates)}</td>
                 <td>${data[index].sumcandidates}</td>
                 <td>${data[index].city}</td>
                 <td>${data[index].district}</td>
-            </tr>
-        `;
-        //we still need to check something :)
-        if (data[index].sumcandidates==1){
-            //console.log("one candidate:\n",data[index])
-            document.dispatchEvent(new CustomEvent('event:one',data[index]));
-        }
-        if (data[index].sumcandidates>=5){
-            //console.log("many candidates",data[index])
-            document.dispatchEvent(new CustomEvent('event:many',data[index]));
+            </tr>`;
+    
         }
     }
-    $("tbody").append(tableData)
+    document.dispatchEvent(new Event("event:finished"));
+    $("#other").append(tableOther)
 }
 
 /*
