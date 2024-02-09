@@ -15,6 +15,19 @@ $(()=>{
         let userSearch = $("#cityName").val();
         $.get(url+userSearch,(response)=>{
             console.log(response.result.records);
+            
+            let myData = response.result.records;
+            for (let counter=0;counter<myData.length;counter++){
+                //console.log(myData[counter]);
+                if (myData[counter].CityName===userSearch){
+                    L.marker([myData[counter].Lat , myData[counter].Long ])                    
+                   
+                    .addTo(map);
+                   
+                }
+            }
+                
+             
             //going to do the magic :)
             
         })
