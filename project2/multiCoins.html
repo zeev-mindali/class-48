@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      var myCoins = ["BTC", "ETH", "BNB", "SOL", "XRP"];
+      const url = `https://min-api.cryptocompare.com/data/pricemulti?fsyms=${myCoins[0]},${myCoins[1]},${myCoins[2]},${myCoins[3]},${myCoins[4]},&tsyms=ils`;
+
+      window.onload = function () {
+        var dataPoints1 = [];
+        var dataPoints2 = [];
+        var dataPoints3 = [];
+        var dataPoints4 = [];
+        var dataPoints5 = [];
+
+        var options = {
+          title: {
+            text: "Virtual Coints",
+          },
+          axisX: {
+            title: "daily change",
+          },
+          axisY: {
+            suffix: "₪",
+          },
+          toolTip: {
+            shared: true,
+          },
+          legend: {
+            cursor: "pointer",
+            verticalAlign: "top",
+            fontSize: 22,
+            fontColor: "dimGrey",
+            itemclick: toggleDataSeries,
+          },
+          data: [
+            {
+              type: "line",
+              xValueType: "dateTime",
+              yValueFormatString: "###.00₪",
+              xValueFormatString: "hh:mm:ss TT",
+              showInLegend: true,
+              name: myCoins[0],
+              dataPoints: dataPoints1,
+            },
+            {
+              type: "line",
+              xValueType: "dateTime",
+              yValueFormatString: "###.00₪",
+              showInLegend: true,
+              name: myCoins[1],
+              dataPoints: dataPoints2,
+            },
+            {
+              type: "line",
+              xValueType: "dateTime",
+              yValueFormatString: "###.00₪",
+              showInLegend: true,
+              name: myCoins[2],
+              dataPoints: dataPoints3,
+            },
+            {
+              type: "line",
+              xValueType: "dateTime",
+              yValueFormatString: "###.00₪",
+              showInLegend: true,
+              name: myCoins[3],
+              dataPoints: dataPoints4,
+            },
+            {
+              type: "line",
+              xValueType: "dateTime",
+              yValueFormatString: "###.00₪",
+              showInLegend: true,
+              name: myCoins[0],
+              dataPoints: dataPoints5,
+            },
+          ],
+        };
+
+        var chart = $("#chartContainer").CanvasJSChart(options);
+
+        function toggleDataSeries(e) {
+          if (
+            typeof e.dataSeries.visible === "undefined" ||
+            e.dataSeries.visible
+          ) {
+            e.dataSeries.visible = false;
+          } else {
+            e.dataSeries.visible = true;
+          }
+          e.chart.render();
+        }
+
+        var updateInterval = 2000;
+        // initial value
+        var yValue1 = 0;
+        var yValue2 = 0;
+        var yValue3 = 0;
+        var yValue4 = 0;
+        var yValue5 = 0;
+
+        var time = new Date();
+        // starting at 10.00 am
+        time.setHours(10);
+        time.setMinutes(0o0);
+        time.setSeconds(0o0);
+        time.setMilliseconds(0o0);
+
+        function updateChart(data) {
+          //   time.setTime(time.getTime() + updateInterval);
+          //   deltaY1 = -1 + Math.random() * (1 + 1);
+          //   deltaY2 = -1 + Math.random() * (1 + 1);
+          //   deltaY3 = -1 + Math.random() * (1 + 1);
+          //   deltaY4 = -1 + Math.random() * (1 + 1);
+          //   deltaY5 = -1 + Math.random() * (1 + 1);
+          for (let count = 0; count < dataPoints1.length; count++) {
+            yValue1 = data[myCoins[0]].ILS;
+            yValue2 = data[myCoins[1]].ILS;
+            yValue3 = data[myCoins[2]].ILS;
+            yValue4 = data[myCoins[3]].ILS;
+            yValue5 = data[myCoins[4]].ILS;
+
+            console.log(
+              dataPoints1,
+              dataPoints2,
+              dataPoints3,
+              dataPoints4,
+              dataPoints5
+            );
+
+            // pushing the new values
+            dataPoints1.push({
+              x: time.getTime(),
+              y: yValue1,
+            });
+            dataPoints2.push({
+              x: time.getTime(),
+              y: yValue2,
+            });
+            dataPoints3.push({
+              x: time.getTime(),
+              y: yValue3,
+            });
+            dataPoints4.push({
+              x: time.getTime(),
+              y: yValue4,
+            });
+            dataPoints5.push({
+              x: time.getTime(),
+              y: yValue5,
+            });
+          }
+
+          // updating legend text with  updated with y Value
+          options.data[0].legendText = myCoins[0] + " : " + yValue1 + "₪";
+          options.data[1].legendText = myCoins[1] + " : " + yValue2 + "₪";
+          options.data[2].legendText = myCoins[2] + " : " + yValue3 + "₪";
+          options.data[3].legendText = myCoins[3] + " : " + yValue3 + "₪";
+          options.data[4].legendText = myCoins[4] + " : " + yValue3 + "₪";
+          $("#chartContainer").CanvasJSChart().render();
+        }
+
+        setInterval(function () {
+          console.log(url);
+          //updateChart();
+          //todo : add coins
+          $.getJSON(url, (res) => {
+            //console.log(res);
+            updateChart(res);
+          });
+        }, 2000);
+      };
+    </script>
+  </head>
+  <body>
+    <div id="chartContainer" style="height: 370px; width: 100%"></div>
+    <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script src="https://cdn.canvasjs.com/jquery.canvasjs.min.js"></script>
+  </body>
+</html>
