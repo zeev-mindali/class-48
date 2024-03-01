@@ -7,6 +7,7 @@ interface Gang1Props {
 }
 
 function Gang1(props: Gang1Props): JSX.Element {
+    //const isNotWorking="bla bla";
     return (
         <div className="gang1 Box">
 			nodeId:{props.nodeId} <br/>name:{props.name} <br/>location:{props.location}<hr/>
