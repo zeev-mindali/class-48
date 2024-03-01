@@ -20,19 +20,18 @@ function MainPage(): JSX.Element {
     //     {id: 6, name:"Simyon"},
     // ]
     let myDevice = [
-        {id:1, nodeId:10, name:"entrance", location:"main-floor"},
-        {id:2, nodeId:11, name:"dinning", location:"main-floor"},
-        {id:3, nodeId:12, name:"kitchen", location:"main-floor"},
-        {id:4, nodeId:15, name:"pool", location:"main-floor"},
-        {id:5, nodeId:17, name:"master-bedroom", location:"main-floor"},
+        {id:1, nodeId:10, name:"entrance", location:"main-floor",total:0},
+        {id:2, nodeId:11, name:"dinning", location:"main-floor",total:0},
+        {id:3, nodeId:12, name:"kitchen", location:"main-floor",total:0},
+        {id:4, nodeId:15, name:"pool", location:"main-floor",total:1},
+        {id:5, nodeId:17, name:"master-bedroom", location:"main-floor",total:1},
     ]
     return (
         <div className="MainPage">
             {/* <Gang1 nodeId={10} name={"entrance"} location={"main-floor"}/>
             <Gang1 nodeId={12} name={"dinning"} location={"main-floor"}/> */}
             {myDevice.map(item=><Gang1 
-              key={item.id} nodeId={item.nodeId} name={item.name} location={item.location}
-            />)}
+                key={item.id} nodeId={item.nodeId} name={item.name} location={item.location} totalEpid={item.total}            />)}
         </div>
     );
 }
