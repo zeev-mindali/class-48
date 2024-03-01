@@ -9,3 +9,7 @@ open power shell as administrator
 run the command : set-executionpolicy remotesigned
 
 npm install -g react-cli-snippets
+
+vs-code extenstion:
+auto import
+spell checker
