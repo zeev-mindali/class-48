@@ -17,14 +17,15 @@ function MainMenu(): JSX.Element {
         <div className="MainMenu">
 			<b>Main menu</b>
             <hr/>
-            {myMenuItem.map(item=>
+            {/* {myMenuItem.map(item=>
                 <>                     
                     <span key={item.id}>{item.name}</span>                                    
                     {item.id==7 && <hr/>}                    
                     {item.id==9 && <hr/>}
                     <br/>
                 </>
-            )}
+            )} */}
+            TBC
         </div>
     );
 }
