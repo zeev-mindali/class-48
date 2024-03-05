@@ -1,3 +1,5 @@
+import Cars from "../../rest/cars/cars";
+import Gabriel from "../../targil/gabriel/gabriel";
 import MainFooter from "../MainFooter/MainFooter";
 import MainHeader from "../MainHeader/MainHeader";
 import MainMenu from "../MainMenu/MainMenu";
@@ -15,7 +17,7 @@ function MainLayout(): JSX.Element {
                 <MainMenu/>
             </aside>
             <main>
-                <Login/>
+                <Cars/>
             </main>
             <footer>
                 <MainFooter/>
