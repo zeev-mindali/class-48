@@ -8,4 +8,5 @@
 .MainLayout,
 .MainLayout>*{
     border: 1px solid white;
+    overflow: auto;
 }

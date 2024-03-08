@@ -19,13 +19,13 @@ function CoinLayout(): JSX.Element {
 
   useEffect(() => {
     axios.get(COIN_RATE_URL).then((result) => {
-      console.log(result.data.data);
+      console.log(result.data.data);      
       setCoins(result.data.data);
     });
   }, []);
 
   return <div className="CoinLayout">
-    {coins.map(item=><SingleCoin id={item.id} symbol={item.symbol} currencySymbol={item.currencySymbol} 
+    {coins.map((item,index)=><SingleCoin key={index} id={item.id} symbol={item.symbol} currencySymbol={item.currencySymbol} 
         rateUsd={item.rateUsd} type={item.type}/>)}
   </div>;
 }
