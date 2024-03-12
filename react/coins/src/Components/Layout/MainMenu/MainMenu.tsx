@@ -14,8 +14,8 @@ function MainMenu(): JSX.Element {
             <NavLink to="/rates">Rates</NavLink><br/>
             Rates by ID<br/><br/>
             <b>Exchanges</b><hr/>
-            Exchanges<br/>
-            Exchanges by ID <br/><br/>
+            <NavLink to="/exchanges">Exchanges</NavLink><br/>
+            <NavLink to="/exchangesId/kraken"> by ID</NavLink> <br/><br/>
             <b>Markets</b><hr/>  
             markets          
         </div>
