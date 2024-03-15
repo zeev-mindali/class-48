@@ -2,16 +2,17 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import "./Login.css";
 
 //to use forms, install : npm install react-hook-form
-//useForm site
+//useForm site : https://www.react-hook-form.com/get-started/
 
 //userName:String, userPassword:String
 type formInputs = {
   userName: String;
   userPassword: String;
   userAddress: String;
-  userCity: String;
-  userLocation: String;
+  userCity: String;  
   userAge: number;
+  userSmart:boolean; 
+  userLocation: String;
 };
 
 function Login(): JSX.Element {
@@ -29,7 +30,7 @@ function Login(): JSX.Element {
     console.log(data);
   };
 
-  console.log(watch("userName")); //watch the user name value when passing data into it
+  //console.log(watch("userName")); //watch the user name value when passing data into it
   //study case:
 
   return (
@@ -48,13 +49,14 @@ function Login(): JSX.Element {
             maxLength: 16,
           })}
         />
-        {errors.userName?.type=="required" && (
+        <br />
+        {errors.userName?.type == "required" && (
           <span className="ErrorText"> this field IS required</span>
         )}
-        {errors.userName?.type=="minLength" &&  (
+        {errors.userName?.type == "minLength" && (
           <span className="ErrorText"> minimum Length : 8</span>
         )}
-         {errors.userName?.type=="maxLength" &&  (
+        {errors.userName?.type == "maxLength" && (
           <span className="ErrorText"> minimum Length : 18</span>
         )}
         <br />
@@ -69,6 +71,16 @@ function Login(): JSX.Element {
           })}
         />
         <br />
+        {errors.userPassword?.type == "required" && (
+          <span className="ErrorText"> this field IS required</span>
+        )}
+        {errors.userPassword?.type == "minLength" && (
+          <span className="ErrorText"> minimum Length : 8</span>
+        )}
+        {errors.userPassword?.type == "maxLength" && (
+          <span className="ErrorText"> minimum Length : 18</span>
+        )}
+        <br />
         <input
           type="text"
           placeholder="user address..."
@@ -78,29 +90,53 @@ function Login(): JSX.Element {
             maxLength: 16,
           })}
         />
-        <input
-          type="text"
-          placeholder="user Location..."
-          {...register("userLocation", {
-            required: true,
-            minLength: 8,
-            maxLength: 16,
-          })}
-        />
         <br />
+        {errors.userAddress?.type == "required" && (
+          <span className="ErrorText"> this field IS required</span>
+        )}
+        {errors.userAddress?.type == "minLength" && (
+          <span className="ErrorText"> minimum Length : 8</span>
+        )}
+        {errors.userAddress?.type == "maxLength" && (
+          <span className="ErrorText"> minimum Length : 18</span>
+        )}        
+        <select {...register("userLocation")}>
+            <option value="north">Tzfon</option>
+            <option value="center">Markaz</option>
+            <option value="south">Darom</option>
+            <option value="matti">Katzir</option>
+        </select>
+        <br />
+        {errors.userLocation?.type == "required" && (
+          <span className="ErrorText"> this field IS required</span>
+        )}
+        <br/>
         <input
           type="text"
           placeholder="user age..."
           {...register("userAge", {
             required: true,
-            minLength: 8,
-            maxLength: 16,
+            min: 18,
+            max: 120,
           })}
         />
+        <br />
+        {errors.userAge?.type == "required" && (
+          <span className="ErrorText"> this field IS required</span>
+        )}
+        {errors.userAge?.type == "min" && (
+          <span className="ErrorText"> minimum Length : 8</span>
+        )}
+        {errors.userAge?.type == "max" && (
+          <span className="ErrorText"> minimum Length : 120</span>
+        )}
         {/* we need to display an error if there is an error, don't display if all is ok"*/}
-        
         <br />
+        <input type="checkbox" {...register("userSmart",{required: true})}/>
         <br />
+        {errors.userSmart?.type == "required" && (
+            <span className="ErrorText">So you are not smart???</span>
+        )}
         <input type="submit" value="Login" />
       </form>
     </div>
