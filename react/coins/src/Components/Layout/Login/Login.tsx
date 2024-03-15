@@ -8,6 +8,10 @@ import "./Login.css";
 type formInputs = {
   userName: String;
   userPassword: String;
+  userAddress: String;
+  userCity: String;
+  userLocation: String;
+  userAge: number;
 };
 
 function Login(): JSX.Element {
@@ -35,12 +39,66 @@ function Login(): JSX.Element {
       {/* handle submit, will check that there is no errors when submitting the form*/}
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* register our input to our useForm hook */}
-        <input type="text" placeholder="User name..." {...register("userName")}/>
+        <input
+          type="text"
+          placeholder="User name..."
+          {...register("userName", {
+            required: true,
+            minLength: 8,
+            maxLength: 16,
+          })}
+        />
+        {errors.userName?.type=="required" && (
+          <span className="ErrorText"> this field IS required</span>
+        )}
+        {errors.userName?.type=="minLength" &&  (
+          <span className="ErrorText"> minimum Length : 8</span>
+        )}
+         {errors.userName?.type=="maxLength" &&  (
+          <span className="ErrorText"> minimum Length : 18</span>
+        )}
         <br />
         {/* register our input and validate it before sending, display an error, if there is any validation violation"*/}
-        <input type="password" placeholder="User password..." {...register("userPassword",{required:true})}/><br/>
+        <input
+          type="password"
+          placeholder="User password..."
+          {...register("userPassword", {
+            required: true,
+            minLength: 8,
+            maxLength: 16,
+          })}
+        />
+        <br />
+        <input
+          type="text"
+          placeholder="user address..."
+          {...register("userAddress", {
+            required: true,
+            minLength: 8,
+            maxLength: 16,
+          })}
+        />
+        <input
+          type="text"
+          placeholder="user Location..."
+          {...register("userLocation", {
+            required: true,
+            minLength: 8,
+            maxLength: 16,
+          })}
+        />
+        <br />
+        <input
+          type="text"
+          placeholder="user age..."
+          {...register("userAge", {
+            required: true,
+            minLength: 8,
+            maxLength: 16,
+          })}
+        />
         {/* we need to display an error if there is an error, don't display if all is ok"*/}
-        {errors.userPassword && <span className="ErrorText"> this field IS require</span>}
+        
         <br />
         <br />
         <input type="submit" value="Login" />
