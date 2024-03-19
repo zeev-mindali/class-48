@@ -1,6 +1,11 @@
+import { Epid } from "../../../model/epid";
 import "./ShowEpid.css";
 
-function ShowEpid(): JSX.Element {
+type epidProps={
+    endDevices:Epid[];
+}
+
+function ShowEpid(props:epidProps): JSX.Element {
     return (
         <div className="ShowEpid">
 			
