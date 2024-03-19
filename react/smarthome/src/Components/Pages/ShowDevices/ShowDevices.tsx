@@ -26,10 +26,16 @@ function ShowDevices(): JSX.Element {
         ]
     );
     return (
-        <div className="ShowDevices Box">
-			<h1>{myHome.name}</h1><hr/>
+        <div className="ShowDevices ">
+			<h1>{myHome.name}</h1>
             {myHome.devices.map((item,index)=>
-            <ShowEpid key={index} endDevices={item.epid} />
+            <div className="Box">
+            
+            node id: {item.id}<br/>
+            node location: {item.location}<br/>
+            node name : {item.name}<br/>
+            <ShowEpid  key={index} endDevices={item.epid} /><br/>
+            </div>
             )}
         </div>
     );

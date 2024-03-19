@@ -11,8 +11,13 @@ interface epidProps{
 
 function ShowEpid(props:epidProps): JSX.Element {
     return (
-        <div className="ShowEpid">
-			
+        <div className="ShowEpid Box">
+			{props.endDevices.map((item,index)=>
+                    <>
+                        <span key={item.id}>epid: {item.id}</span><br/>
+                        <span key={index}>{item.name}</span><hr/>
+                    </>
+            )}
         </div>
     );
 }
