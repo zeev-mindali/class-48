@@ -1,7 +1,11 @@
 import { Epid } from "../../../model/epid";
 import "./ShowEpid.css";
 
-type epidProps={
+// type epidProps={
+//     endDevices:Epid[];
+// }
+
+interface epidProps{
     endDevices:Epid[];
 }
 
