@@ -30,11 +30,12 @@ function ShowDevices(): JSX.Element {
 			<h1>{myHome.name}</h1>
             {myHome.devices.map((item,index)=>
             <div className="Box">
-            
-            node id: {item.id}<br/>
-            node location: {item.location}<br/>
-            node name : {item.name}<br/>
-            <ShowEpid  key={index} endDevices={item.epid} /><br/>
+                <div className="nodes">
+                    node id: {item.id}<br/>
+                    node location: <input type="text" value={item.location as string}/><br/>
+                    node name : <input type="text" value={item.name as string}/><br/>
+                </div>
+                <ShowEpid  key={index} endDevices={item.epid} /><br/>
             </div>
             )}
         </div>

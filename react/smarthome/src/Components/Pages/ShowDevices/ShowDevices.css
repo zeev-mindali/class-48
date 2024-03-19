@@ -1,3 +1,11 @@
 .ShowDevices {
-	
+
+}
+
+.nodes{
+    position: relative;
+    left: -300px;
+    bottom: -20px;
+    text-align: center;
+    
 }

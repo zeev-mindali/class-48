@@ -8,11 +8,22 @@ html,body,#root{
     background-image: linear-gradient(45deg, purple, black);
 }
 
-.Box{
-    display: inline-block;
-    border: 1px solid black;
-    padding: 20px;
+.Box{   
+    border: 1px solid black;   
     margin: 10px;
     border-radius: 10px;
     box-shadow: 5px 5px 10px;
+    width: 98%;
+    
 }
+.BoxInside{
+    display: inline-block;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px;
+    width: 20vh;
+    margin-top: -50px;
+}
+
