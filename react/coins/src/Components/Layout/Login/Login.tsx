@@ -15,7 +15,6 @@ function Login(): JSX.Element {
   return (
     <div className="Login Box">
       <Typography variant="h4" className="HeadLine">
-        {" "}
         Login Form
       </Typography>
       <hr />
