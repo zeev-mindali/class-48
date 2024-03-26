@@ -3,6 +3,7 @@ import SongList from "../../Pages/SongList/SongList";
 import AddNewSong from "../../Pages/AddNewSong/AddNewSong";
 import AboutMe from "../../Pages/AboutMe/AboutMe";
 import Page404 from "../../Pages/Page404/Page404";
+import Player from "../../Pages/Player/Player";
 
 function MainRoute(): JSX.Element {
     return (
@@ -11,6 +12,7 @@ function MainRoute(): JSX.Element {
                 <Route path="/" element={<SongList/>}/>
                 <Route path="/addSong" element={<AddNewSong/>}/>
                 <Route path="/about" element={<AboutMe/>}/>
+                <Route path="/player/:name/:id" element={<Player/>}/>
                 <Route path="*" element={<Page404/>}/>
             </Routes>
         </div>
