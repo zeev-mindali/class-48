@@ -4,6 +4,7 @@ import { Song } from "../../../model/song";
 import SingleSong from "../SingleSong/SingleSong";
 import { youtube } from "../../../redux/store";
 import { downloadSongAction } from "../../../redux/SongReducer";
+import { addCatFunction, downloadCatAction } from "../../../redux/CatReducer";
 
 function SongList(): JSX.Element {
   const [songList, setSongList] = useState<Song[]>([]);
@@ -23,6 +24,18 @@ function SongList(): JSX.Element {
       //console.log(mySongs);
 
       //   }
+    }
+    if (youtube.getState().categories.allCat.length<1){
+        try{
+            let myCategories = JSON.parse(localStorage.getItem("cat")||"");
+            if (myCategories.length>0){
+                youtube.dispatch(downloadCatAction(myCategories))
+            } else {
+                youtube.dispatch(addCatFunction("default"));
+            }
+        } catch (err){
+            youtube.dispatch(addCatFunction("default"));
+        }
     }
   }, []);
   return (

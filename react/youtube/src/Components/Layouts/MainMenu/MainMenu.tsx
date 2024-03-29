@@ -7,7 +7,8 @@ function MainMenu(): JSX.Element {
 			<h2>Main Menu</h2><hr/>
             <NavLink to="/">Song list</NavLink><br/><br/>
             <NavLink to="/addSong">Add new song</NavLink><br/><br/>
-            <NavLink to="/about">About me</NavLink>
+            <NavLink to="/about">About me</NavLink><hr/>
+            
         </div>
     );
 }

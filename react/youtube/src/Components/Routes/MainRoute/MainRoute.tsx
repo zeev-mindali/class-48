@@ -13,6 +13,7 @@ function MainRoute(): JSX.Element {
                 <Route path="/addSong" element={<AddNewSong/>}/>
                 <Route path="/about" element={<AboutMe/>}/>
                 <Route path="/player/:name/:id" element={<Player/>}/>
+                <Route path="/cat/:catName" element={<SongList/>}/>
                 <Route path="*" element={<Page404/>}/>
             </Routes>
         </div>

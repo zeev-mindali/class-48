@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./AddCategory.css";
+import { youtube } from "../../../redux/store";
+import { addCatFunction } from "../../../redux/CatReducer";
 
 function AddCategory(): JSX.Element {
     const [catName,setName] = useState("");
@@ -22,8 +24,8 @@ function AddCategory(): JSX.Element {
                         localStorage.setItem("cat",JSON.stringify(catName));
                     }
                     //redux handler
-                    
-                }}
+                    youtube.dispatch(addCatFunction(catName));
+                }}/>
             </div>
         </div>
     );

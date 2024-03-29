@@ -1,11 +1,12 @@
 import { combineReducers } from "redux";
 import { SongReducer } from "./SongReducer";
 import { configureStore } from "@reduxjs/toolkit";
+import { CatReducer } from "./CatReducer";
 
 //npm install @reduxjs/toolkit
 
 //which reducer should i use
-const reducers = combineReducers({songs: SongReducer});
+const reducers = combineReducers({songs: SongReducer, categories:CatReducer});
 
 //combine all reducers to one single store....
 export const youtube = configureStore({
