@@ -14,6 +14,7 @@ function AddNewSong(): JSX.Element {
     const [songName,setSongName] = useState("")
     const [songDesc,setSongDesc] = useState("");
     const [songImageURL, setSongImageURL] = useState("");
+    const [songCat, setSongCat] = useState("");
 
     const navigate = useNavigate();
 
@@ -32,11 +33,11 @@ function AddNewSong(): JSX.Element {
         let songList;
         try{
              songList = JSON.parse(localStorage.getItem("mySongs")||"");
-             youtube.dispatch(addSongFunction(new Song(songId,songName,songDesc,songImageURL)));
+             youtube.dispatch(addSongFunction(new Song(songId,songName,songDesc,songImageURL,songCat)));
         } catch (err){
             songList = [];
         }
-        songList.push(new Song(songId,songName,songDesc,songImageURL));
+        songList.push(new Song(songId,songName,songDesc,songImageURL,songCat));
         //addSongToList(songList);
         localStorage.setItem("mySongs",JSON.stringify(songList))
         navigate("/");
@@ -50,6 +51,7 @@ function AddNewSong(): JSX.Element {
                 }
             }
             />
+            
             <input type="button" value="search" onClick={handleSearch}/>
             <hr/>
             <h3>{songName}</h3><br/>
