@@ -2,9 +2,11 @@ import { useState } from "react";
 import "./AddCategory.css";
 import { youtube } from "../../../redux/store";
 import { addCatFunction } from "../../../redux/CatReducer";
+import { useNavigate } from "react-router-dom";
 
 function AddCategory(): JSX.Element {
     const [catName,setName] = useState("");
+    const navigate = useNavigate();
     return (
         <div className="AddCategory">
 			<div className="Box">
@@ -21,10 +23,12 @@ function AddCategory(): JSX.Element {
                     } catch (err){
                         let catList = [];
                         catList.push(catName);
-                        localStorage.setItem("cat",JSON.stringify(catName));
-                    }
+                        localStorage.setItem("cat",JSON.stringify(catList));
+                    }                    
                     //redux handler
                     youtube.dispatch(addCatFunction(catName));
+                    //move to main page
+                    navigate("/");
                 }}/>
             </div>
         </div>
