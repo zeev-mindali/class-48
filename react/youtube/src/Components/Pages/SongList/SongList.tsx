@@ -9,22 +9,27 @@ function SongList(): JSX.Element {
   const [songList, setSongList] = useState<Song[]>([]);
   useEffect(() => {
     if (youtube.getState().songs.allSongs.length < 1) {
-      let mySongs = JSON.parse(localStorage.getItem("mySongs") || "");
-      if (mySongs.length > 0) {
-        setSongList(mySongs);
-        console.log(mySongs);
-        console.log("send songs to redux");
-        youtube.dispatch(
-            downloadSongAction(mySongs)
-        );
+      try {
+        let mySongs = JSON.parse(localStorage.getItem("mySongs") || "");
+        if (mySongs.length > 0) {
+          setSongList(mySongs);
+          console.log(mySongs);
+          console.log("send songs to redux");
+          youtube.dispatch(downloadSongAction(mySongs));
+        }
+      } catch (err) {
+        console.log("there is no songs in the system");
       }
+      //console.log(mySongs);
+
+      //   }
     }
   }, []);
   return (
     <div className="SongList">
       <h1>our song list, we will use map</h1>
       <hr />
-      {youtube.getState().songs.allSongs.map((item,index) => (
+      {youtube.getState().songs.allSongs.map((item, index) => (
         <SingleSong key={index} item={item} />
       ))}
     </div>

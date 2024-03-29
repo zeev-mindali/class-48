@@ -3,6 +3,8 @@ import "./AddNewSong.css";
 import axios from "axios";
 import { Song } from "../../../model/song";
 import { useNavigate } from "react-router-dom";
+import { youtube } from "../../../redux/store";
+import { addSongFunction } from "../../../redux/SongReducer";
 
 function AddNewSong(): JSX.Element {
     const API_KEY="AIzaSyCSNr_wd1yco02Zg3wZLzLV7ByNb5TU0_g";
@@ -27,7 +29,13 @@ function AddNewSong(): JSX.Element {
     }
 
     const handleAddSong = ()=>{
-        let songList = JSON.parse(localStorage.getItem("mySongs")||"");
+        let songList;
+        try{
+             songList = JSON.parse(localStorage.getItem("mySongs")||"");
+             youtube.dispatch(addSongFunction(new Song(songId,songName,songDesc,songImageURL)));
+        } catch (err){
+            songList = [];
+        }
         songList.push(new Song(songId,songName,songDesc,songImageURL));
         //addSongToList(songList);
         localStorage.setItem("mySongs",JSON.stringify(songList))
