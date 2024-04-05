@@ -1,0 +1,4 @@
+exports.myDateTime = ()=>{
+    return Date();
+}
+
