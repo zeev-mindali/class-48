@@ -36,7 +36,7 @@ eventEmitter.on(userEvents.DispatchDel,dispatchHandler);
 eventEmitter.on(userEvents.ArriveDel,arriveHandler);
 eventEmitter.on(userEvents.DelGive,giveHandler);
 eventEmitter.on(userEvents.DelReturned,returnHandler);
-
+eventEmitter.on(userEvents.DelGive,beHappyHandler);
 const CallDelHandler = setTimeout(()=>{
     console.log("Call delivery");
     eventEmitter.emit(userEvents.DispatchDel);
@@ -59,4 +59,8 @@ const giveHandler = setTimeout(()=>{
 
 const returnHandler = ()=>{
     console.log("yeruslav can go home :)");
+}
+
+const beHappyHandler = ()=>{
+    console.log("the package is here, the package is here.....");
 }
