@@ -12,6 +12,15 @@ const carInfo = async (id:string)=>{
     return await axios.get(CAR_URL+id);
 }
 
+const bikeInfo = async (id:string)=>{
+    return await axios.get(BIKE_URL+id);
+}
+
+const truckInfo = async (id:string)=>{
+    return await axios.get(TRUCK_URL+id);
+}
 export {
     carInfo,
+    bikeInfo,
+    truckInfo
 }
