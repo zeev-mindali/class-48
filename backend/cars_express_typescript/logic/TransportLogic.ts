@@ -9,18 +9,25 @@ const OFFROAD_URL   = "https://data.gov.il/api/3/action/datastore_search?resourc
 const RECALL_URL    = "https://data.gov.il/api/3/action/datastore_search?resource_id=36bf1404-0be4-49d2-82dc-2f1ead4a8b93&q=";
 
 const carInfo = async (id:string)=>{
-    return await axios.get(CAR_URL+id);
+    let myData = (await axios.get(CAR_URL+id)).data.result.records[0];
+    //console.log(myData);
+    return myData;
 }
 
 const bikeInfo = async (id:string)=>{
-    return await axios.get(BIKE_URL+id);
+    let myData = (await axios.get(BIKE_URL+id)).data.result.records[0];
+    return myData;
 }
 
 const truckInfo = async (id:string)=>{
-    return await axios.get(TRUCK_URL+id);
+    let myData = (await axios.get(TRUCK_URL+id)).data.result.records[0];
+    return myData;
 }
 export {
     carInfo,
     bikeInfo,
     truckInfo
 }
+
+//for checking purposes
+//carInfo("6225433").then(res=>console.log(res));
