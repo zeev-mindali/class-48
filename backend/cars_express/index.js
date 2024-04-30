@@ -20,6 +20,31 @@ APP.get("/car/:id", async(request,response)=>{
     response.send(carData.data.result.records);
 });
 
+APP.get("/bike/:id", async(request,response)=>{
+    let carData = await axios.get(BIKE_URL+request.params.id);
+    response.send(carData.data.result.records);
+});
+
+APP.get("/truck/:id", async(request,response)=>{
+    let carData = await axios.get(TRUCK_URL+request.params.id);
+    response.send(carData.data.result.records);
+});
+
+APP.get("/offroad/:id", async(request,response)=>{
+    let carData = await axios.get(OFFROAD_URL+request.params.id);
+    response.send(carData.data.result.records);
+});
+
+APP.get("/handicap/:id", async(request,response)=>{
+    let carData = await axios.get(HANDICAP_URL+request.params.id);
+    response.send(carData.data.result.records);
+});
+
+APP.get("/recall/:id", async(request,response)=>{
+    let carData = await axios.get(RECALL_URL+request.params.id);
+    response.send(carData.data.result.records);
+});
+
 APP.listen(PORT,HOST,()=>{
     console.log (`http://${HOST}:${PORT} is ready for business`);
 })
