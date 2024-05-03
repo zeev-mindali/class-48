@@ -1,7 +1,7 @@
 //check car number : 90645001
 
 import axios from "axios";
-import { addCarToStorage } from "../Utils/storageUtil";
+import { addCarToStorage, getCarsByPrice, getSoldCars, updateCarSold } from "../Utils/storageUtil";
 import CarData from "../Models/carData";
 
 const CAR_URL =
@@ -35,11 +35,21 @@ const addCar = async (
   //add car info to our local storage.
   addCarToStorage(carInfo);
 };
-const soldCar = (carNumber: number) => {};
+const soldCar = (carNumber: string) => {
+    return updateCarSold(carNumber);
+};
+const searchCarByPrice = (lowPrice: number, highPrice: number) => {
+    return getCarsByPrice(lowPrice,highPrice);
+};
 const searchCarByManufacturer = (manufacturer: string) => {};
-const searchCarByPrice = (lowPrice: number, highPrice: number) => {};
+
 const searchCarByModel = (model: string) => {};
-const listSoldCar = () => {};
+const listSoldCar = () => {
+    return getSoldCars();
+};
 
 //check methods
-addCar("90645001", 40000, 3, 420000);
+// check => addCar("90645001", 40000, 3, 420000);
+// check => soldCar("90645001");
+// check => console.log(searchCarByPrice(40000,40000));
+console.log(listSoldCar());
