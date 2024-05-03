@@ -1,16 +1,25 @@
 import CarData from "../Models/carData";
+import * as fs from "fs";
 
-const addCarToStorage = (carData:CarData)=>{
-    //check if localstorage data is exists
-
+const addCarToStorage = (carData:CarData)=>{   
     //get all data as array (JSON.parse)
-    let allData = JSON.parse(localStorage.getItem("carList") || "");
-
-    //push new car data to array
+    let allData:CarData[]=[];
+    try{ 
+        allData = JSON.parse(fs.readFileSync("../Assets/car.data","utf-8"));
+    } catch (err){
+        allData = [];
+    }
+    //check if car already in the system
+    for (let index=0;index<allData.length;index++){
+        if (allData[index].carNumber == carData.carNumber){
+            console.log("we have that car already!!!");
+            return;
+        }
+    }
     allData.push(carData);
 
     //save the array (JSON.strigify)
-    localStorage.setItem("carList",JSON.stringify(allData));
+    fs.writeFileSync("../Assets/car.data",JSON.stringify(allData));
 }
 
 

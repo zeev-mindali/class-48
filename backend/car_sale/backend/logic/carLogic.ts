@@ -8,7 +8,7 @@ const CAR_URL =
   "https://data.gov.il/api/3/action/datastore_search?resource_id=053cea08-09bc-40ec-8f7a-156f0677aff3&q=";
 
 const addCar = async (
-  carNumber: number,
+  carNumber: string,
   price: number,
   yad: number,
   km: number
@@ -19,6 +19,7 @@ const addCar = async (
   
   //create new object (as we wrote in the model)
   let carInfo = new CarData(
+    carNumber,
     data["tozeret_nm"],
     data["tokef_dt"],
     data["tzeva_rechev"],
@@ -41,4 +42,4 @@ const searchCarByModel = (model: string) => {};
 const listSoldCar = () => {};
 
 //check methods
-addCar(90645001, 40000, 3, 420000);
+addCar("90645001", 40000, 3, 420000);
