@@ -43,7 +43,7 @@ const forgotPassword = (userName:string)=>{
    //find the user...
    let singleUser = userInfo.find((item: { userName: string; })=>item.userName===userName);
    if (singleUser===undefined){
-        return false;
+        return "";
    }
    return singleUser.userPass;
    //send back the password....
