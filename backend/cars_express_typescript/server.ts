@@ -5,6 +5,7 @@ import fileUpload from "express-fileupload";
 import config from "./Utils/config"
 import carRouter from "./Routes/vehicles";
 import ErrorHandler from "./MiddleWare/routeNotFound";
+import loginRouter from "./Routes/login";
 
 //import ErrorHandler
 //import router 
@@ -27,7 +28,7 @@ server.use(fileUpload({createParentPath: true}));
 
 //using routes = > http://localhost:8080/api/v1/transport
 server.use("/api/v1/transport", carRouter);
-//server.use("/api/v2/yarden",carRouter);
+server.use("/api/v1/login",loginRouter);
 //404 handler
 server.use("*",ErrorHandler);
 
