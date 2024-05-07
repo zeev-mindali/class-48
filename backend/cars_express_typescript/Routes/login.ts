@@ -1,5 +1,5 @@
-import express , {NextFunction,Request,Response} from 'express';
-import { registerUser } from '../logic/UserLogic';
+import express, { NextFunction, Request, Response } from "express";
+import { loginUser, registerUser } from "../logic/UserLogic";
 
 const loginRouter = express.Router();
 
@@ -7,26 +7,32 @@ const loginRouter = express.Router();
 
 //loginUser
 loginRouter.post(
-    "/loginUser",
-    async (request:Request, response:Response, nextFunction:NextFunction)=>{        
-        let userCred = request.body;
-        /*
+  "/loginUser",
+  async (request: Request, response: Response, nextFunction: NextFunction) => {
+    let userCred = request.body;
+    /*
             {
                 userName : "zeev",
                 userPass : "12345"
             }
         */
-        response.status(200).json({"msg":`hello user ${userCred.userName}`});
+    if (loginUser(userCred)) {
+      response.status(200).json({ msg: `hello user ${userCred.userName}` });
+    } else {
+        response.status(401).json({ msg: "bad password :("});
     }
-)
-
-loginRouter.post(
-    "/registerUser",
-    async (request:Request, response:Response, nextFunction:NextFunction)=>{
-        registerUser(request.body);
-        response.status(201).json({"msg":"user was created"});
-    }
+  }
 );
 
+loginRouter.post(
+  "/registerUser",
+  async (request: Request, response: Response, nextFunction: NextFunction) => {
+    if (registerUser(request.body)) {
+      response.status(201).json({ msg: "user was created" });
+    } else {
+      response.status(400).json({ msg: "user already exists" });
+    }
+  }
+);
 
 export default loginRouter;
