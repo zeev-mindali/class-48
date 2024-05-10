@@ -12,6 +12,7 @@ carRouter.get(
         if (jwt.length>10){
             response
             .status(200)
+            .header('Access-Control-Expose-Headers', 'Authorization')
             .header("Authorization",jwt)
             .json(await carInfo(request.params.id));
         } else {

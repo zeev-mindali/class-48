@@ -12,10 +12,13 @@ loginRouter.post(
   async (request: Request, response: Response, nextFunction: NextFunction) => {
     let userCred = request.body;
     const myJWT = loginUser(userCred);
+    //need to expose headers 
     if (myJWT.length>10) {
       response
         .status(200)
+        .header('Access-Control-Expose-Headers', 'Authorization')
         .header("Authorization",myJWT)
+        
         .json({ msg: `hello user ${userCred.userName}` });
     } else {
       response.status(401).json({ msg: "bad password :(" });
