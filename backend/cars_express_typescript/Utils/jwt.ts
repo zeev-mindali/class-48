@@ -1,4 +1,7 @@
 //install jwt token handler
+
+import { UserCred } from "../Models/UserCred";
+
 //npm install jsonwebtoken
 const jwt = require('jsonwebtoken');
 
@@ -6,11 +9,11 @@ const jwt = require('jsonwebtoken');
 const secretKey = "the-secret-key-need-to-be-at-least-256-bytes";
 
 //jwt => header,body,signature (secret key)
-const createJWT = (userName:string,userEmail:string,userRole:string)=>{
+const createJWT = (user:UserCred)=>{
     const payload = {
-        id:userName,
-        email:userEmail,
-        role: userRole
+        id:user.userEmail,
+        name:user.userName,
+        role: user.userRole
     }
 
     
@@ -18,19 +21,20 @@ const createJWT = (userName:string,userEmail:string,userRole:string)=>{
     const options = {expiresIn: '1h'};
 
     const myJWT = jwt.sign(payload,secretKey,options);
-    console.log("jwt: ",myJWT);
-    return myJWT;
-
+    console.log("jwt data:", payload)
+    console.log("jwt: ","Bearer "+myJWT);
+    return "Bearer "+myJWT;
 }
 
 const checkJWT = (token:string)=>{
     try{
-        const decoded = jwt.verify(token,secretKey);
+        const checkToken=token.split(' ')[1];
+        const decoded = jwt.verify(checkToken,secretKey);
         console.log(decoded);
-        return true;
-    } catch (err) {
-        console.log("error: ",err);
-        return false;
+        return createJWT(new UserCred(decoded.name,decoded.role,decoded.id));
+    } catch (err:any) {
+        console.log("error: ",err.name);
+        return "";
     }
 }
 

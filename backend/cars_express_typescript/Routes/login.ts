@@ -11,14 +11,12 @@ loginRouter.post(
   "/loginUser",
   async (request: Request, response: Response, nextFunction: NextFunction) => {
     let userCred = request.body;
-    /*
-            {
-                userName : "zeev",
-                userPass : "12345"
-            }
-        */
-    if (loginUser(userCred)) {
-      response.status(200).json({ msg: `hello user ${userCred.userName}` });
+    const myJWT = loginUser(userCred);
+    if (myJWT.length>10) {
+      response
+        .status(200)
+        .header("Authorization",myJWT)
+        .json({ msg: `hello user ${userCred.userName}` });
     } else {
       response.status(401).json({ msg: "bad password :(" });
     }
@@ -56,7 +54,7 @@ loginRouter.post(
     let userData = request.body;
     response
       .status(200)
-      .json({ jwt: createJWT(userData.id, userData.email, userData.role) });
+      .json({ jwt: createJWT(userData) });
   }
 );
 
