@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import "./login.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import notify from "../../utils/Notify";
 
 function Login(): JSX.Element {
   const navigate = useNavigate();
@@ -27,10 +28,12 @@ function Login(): JSX.Element {
         localStorage.setItem("jwt",res.headers["authorization"]);
         console.log(res);
         //if token is ok move to main page....
+        notify.success("hellllllllllllo, la la la la la");
         navigate("/search/car");
       })
       .catch((err) => {
-        console.log(err);
+        console.log("you are not allowed");
+        notify.error("Bad user name or password")
       });
     
   };
