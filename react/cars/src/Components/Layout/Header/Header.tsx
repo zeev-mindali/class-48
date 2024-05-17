@@ -31,9 +31,10 @@ function Header(): JSX.Element {
           type="button"
           value="login"
           onClick={() => {
-            navigate("/");
+            navigate("/login");
           }}
         />
+        <input type="button" value="register" onClick={()=>navigate("/register")}/>
       </>
     );
   };

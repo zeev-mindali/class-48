@@ -7,8 +7,6 @@ import { SubmitHandler, useForm } from "react-hook-form";
 
 function Login(): JSX.Element {
   const navigate = useNavigate();
-  const [userName, setUserName] = useState("");
-  const [userPass, setUserPass] = useState("");
 
   //user name, user pass, remember me, user role:user,company,admin
   type userCred = {
