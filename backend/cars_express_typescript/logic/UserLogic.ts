@@ -44,13 +44,17 @@ const loginUser = (user: UserCred) => {
   //return singleUser.userName===user.userName && singleUser.userPass===user.userPass;
 
   //sending jwt if user data is o.k.
-  if (
-    singleUser.userName === user.userName &&
-    singleUser.userPass === user.userPass 
-  ) {
-    return createJWT(singleUser);
-  } else {
-    return "";
+  try {
+    if (
+      singleUser.userName === user.userName &&
+      singleUser.userPass === user.userPass
+    ) {
+      return createJWT(singleUser);
+    } else {
+      return "";
+    }
+  } catch (err) {
+    console.log("no user found");
   }
 };
 

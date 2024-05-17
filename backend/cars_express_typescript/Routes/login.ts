@@ -13,7 +13,7 @@ loginRouter.post(
     let userCred = request.body;
     const myJWT = loginUser(userCred);
     //need to expose headers 
-    if (myJWT.length>10) {
+    if (myJWT!==undefined && myJWT.length>10) {
       response
         .status(200)
         .header('Access-Control-Expose-Headers', 'Authorization')

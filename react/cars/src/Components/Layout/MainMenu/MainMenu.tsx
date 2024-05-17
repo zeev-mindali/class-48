@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import "./MainMenu.css";
 
 function MainMenu(): JSX.Element {
-  const isShow = false;
+  const isShow = true;
   const showMainMenu = () => {
     return (
       <>
