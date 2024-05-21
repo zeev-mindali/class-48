@@ -55,6 +55,8 @@ function MainMenu(): JSX.Element {
           <NavLink to={"/"}>find company</NavLink>
           <br />
           <NavLink to={"/"}>delete company</NavLink>
+          <br/>
+          <NavLink to={"/hacker"}>Gabriel</NavLink>
           <hr />
         </>
       );
