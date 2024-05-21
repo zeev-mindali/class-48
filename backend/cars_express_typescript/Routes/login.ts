@@ -5,21 +5,27 @@ import { checkJWT, createJWT } from "../Utils/jwt";
 const loginRouter = express.Router();
 
 //login methods: loginUser, registerUser, forgotPassword
-
+export type userCred = {
+  name: string;
+  email: string;
+  role: string;
+  jwt: string;
+};
 //loginUser
 loginRouter.post(
   "/loginUser",
   async (request: Request, response: Response, nextFunction: NextFunction) => {
     let userCred = request.body;
-    const myJWT = loginUser(userCred);
-    //need to expose headers 
-    if (myJWT!==undefined && myJWT.length>10) {
+    const userData = loginUser(userCred) ;
+
+    //need to expose headers
+    if (userData !== undefined && userData["jwt"].length > 10) {
+        console.log(userData);
       response
         .status(200)
-        .header('Access-Control-Expose-Headers', 'Authorization')
-        .header("Authorization",myJWT)
-        
-        .json({ msg: `hello user ${userCred.userName}` });
+        .header("Access-Control-Expose-Headers", "Authorization")
+        .header("Authorization", userData["jwt"])
+        .json(userData);
     } else {
       response.status(401).json({ msg: "bad password :(" });
     }
@@ -55,20 +61,18 @@ loginRouter.post(
   "/getJWT",
   async (request: Request, response: Response, nextFunction: NextFunction) => {
     let userData = request.body;
-    response
-      .status(200)
-      .json({ jwt: createJWT(userData) });
+    response.status(200).json({ jwt: createJWT(userData) });
   }
 );
 
 loginRouter.get(
   "/checkJWT/:token",
   async (request: Request, response: Response, nextFunction: NextFunction) => {
-    console.log("token: ",request.params.token);
+    console.log("token: ", request.params.token);
     if (checkJWT(request.params.token)) {
       response.status(200).json({ msg: "all ok" });
     } else {
-        response.status(401).json({ msg: "token is invalid" });
+      response.status(401).json({ msg: "token is invalid" });
     }
   }
 );

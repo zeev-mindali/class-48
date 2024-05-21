@@ -1,4 +1,5 @@
-import { UserCred } from "../Models/UserCred";
+import { UserCred } from "./../Models/UserCred";
+import { userCred } from "../Routes/login";
 import { createJWT } from "../Utils/jwt";
 const fs = require("fs");
 
@@ -49,9 +50,20 @@ const loginUser = (user: UserCred) => {
       singleUser.userName === user.userName &&
       singleUser.userPass === user.userPass
     ) {
-      return createJWT(singleUser);
+      const userInfo = {
+        name: singleUser.userName,
+        email: singleUser.userEmail,
+        role: singleUser.userRole,
+        jwt: createJWT(singleUser),
+      };
+      return userInfo;
     } else {
-      return "";
+      return {
+        name: "",
+        email: "",
+        role: "GUEST",
+        jwt: "",
+      };
     }
   } catch (err) {
     console.log("no user found");
