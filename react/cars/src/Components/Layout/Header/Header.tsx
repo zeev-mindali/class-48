@@ -3,6 +3,7 @@ import "./Header.css";
 import { useEffect, useState } from "react";
 import { store } from "../../redux/store";
 import { logoutAction } from "../../redux/AuthRedicer";
+import notify from "../../utils/Notify";
 
 function Header(): JSX.Element {
   const [isLogged, setLogged] = useState(false);
@@ -22,6 +23,7 @@ function Header(): JSX.Element {
           value="logout"
           onClick={() => {
             store.dispatch(logoutAction());
+            notify.success("goodbye, and thank you for the fish");
             localStorage.removeItem("jwt");
           }}
         />
