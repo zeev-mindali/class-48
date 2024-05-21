@@ -4,7 +4,7 @@
 import { Notyf } from "notyf";
 
 class Notify{
-    private notification = new Notyf({duration:4000, position:{x:"center", y:"top"}});
+    private notification = new Notyf({duration:1500, position:{x:"left", y:"top"}});
     public success(message:string){
         this.notification.success(message)
     }

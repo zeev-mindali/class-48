@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import notify from "../../utils/Notify";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { store } from "../../redux/store";
+import { AuthState, loginAction } from "../../redux/AuthRedicer";
 
 function Login(): JSX.Element {
   const navigate = useNavigate();
@@ -35,13 +37,16 @@ function Login(): JSX.Element {
         userPass: data.userPass,
       })
       .then((res) => {
+        //console.log("my result:",res.data);
+        //update the redux        
+        store.dispatch(loginAction(res.data))
         const jwt = res.headers["authorization"];
         if (data.rememberMe) {
           localStorage.setItem("jwt", jwt);
         } else {
           localStorage.removeItem("jwt");
           sessionStorage.setItem("jwt", jwt);
-        }
+        }        
         notify.success("Welcome my master....");
         navigate("/main")
       })
