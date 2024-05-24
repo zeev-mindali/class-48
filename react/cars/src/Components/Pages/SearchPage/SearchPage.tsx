@@ -49,8 +49,9 @@ function SearchPage(): JSX.Element {
   const handleSearch = () => {
     axios.get(URL_CAR + carData).then((res) => {
       let myData: Car[] = [];
-      let myResponse = res.data.result.records;
-      for (let index = 0; index < RESULT_LIMIT; index++) {
+      let myResponse = res.data.result.records;      
+      for (let index = 0; index < myResponse.length; index++) {
+        console.log(myResponse[index]);
         myData.push(
           new Car(
             myResponse[index].baalut,
