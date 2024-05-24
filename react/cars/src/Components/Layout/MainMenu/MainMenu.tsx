@@ -7,7 +7,7 @@ function MainMenu(): JSX.Element {
   const [isUser,setUser] = useState(false);
   const [isCompany,setCompany] = useState(false);
   const [isAdmin,setAdmin] = useState(false);
-
+  
   store.subscribe(()=>{
     switch (store.getState().auth.role){
         case "Admin":

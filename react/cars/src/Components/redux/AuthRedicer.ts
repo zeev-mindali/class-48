@@ -20,7 +20,7 @@ export interface AuthAction{
 }
 
 //4 - method/function
-export function loginAction(user:AuthState):AuthAction{
+export function loginAction(user:any):AuthAction{
     return {type: AuthActionType.login, payload:user}
 }
 

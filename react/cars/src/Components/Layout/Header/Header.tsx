@@ -4,12 +4,14 @@ import { useEffect, useState } from "react";
 import { store } from "../../redux/store";
 import { logoutAction } from "../../redux/AuthRedicer";
 import notify from "../../utils/Notify";
+import { checkJWT } from "../../utils/JWT";
 
 function Header(): JSX.Element {
   const [isLogged, setLogged] = useState(false);
   const navigate = useNavigate();
   store.subscribe(() => {
     setLogged(store.getState().auth.jwt.length>10);
+    //checkJWT();
   });
   useEffect(() => {
     const myJWT = localStorage.getItem("jwt") || "";
