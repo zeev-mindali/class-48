@@ -22,6 +22,7 @@ function Register(): JSX.Element {
         }
 
         let sendData = {
+            userName:data.userName,
             userPass:data.userPass,
             userRole:data.userRole,
             userEmail:data.userEmail,
@@ -29,7 +30,7 @@ function Register(): JSX.Element {
         //go to axios and send the information....
         axios.post("http://localhost:8080/api/v1/login/registerUser",sendData)
         .then (res=>{
-            notify.success("User was registered successfully");
+            notify.success("User was registered successfully");            
             navigate("/");
         })
         .catch(err=>{

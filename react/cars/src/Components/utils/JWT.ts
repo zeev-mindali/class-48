@@ -6,11 +6,10 @@ import { isExpired, decodeToken } from "react-jwt";
 import { AuthState, loginAction } from "../redux/AuthRedicer";
 import { decode } from "punycode";
 
-
 export const checkJWT = () => {
   //check if we have jwt in sessionStorage
-  let jwt="";
-  jwt = sessionStorage.getItem("jwt")?.split(" ")[1]|| "";
+  let jwt = "";
+  jwt = sessionStorage.getItem("jwt")?.split(" ")[1] || "";
   if (jwt.length < 10) {
     jwt = localStorage.getItem("jwt")?.split(" ")[1] || "";
   }
@@ -18,16 +17,21 @@ export const checkJWT = () => {
   //console.log("JWT: ",jwt)
 
   //if not check if we have it on localStorage
-  
+
   if (jwt.length < 10) {
     return false;
   }
-  
+
+  //check if isExpired....
+  if (isExpired(jwt)) {
+    return false;
+  }
+
   //console.log("jwt:",decodeToken(jwt));
-  let myDecoded:any = decodeToken(jwt);
-  myDecoded.jwt = "Bearer "+jwt;
+  let myDecoded: any = decodeToken(jwt);
+  myDecoded.jwt = "Bearer " + jwt;
   //console.log("decoded: ",myDecoded);
-  store.dispatch(loginAction(myDecoded))
-  
+  store.dispatch(loginAction(myDecoded));
+
   return true;
 };

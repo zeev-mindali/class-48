@@ -26,6 +26,7 @@ function Header(): JSX.Element {
           onClick={() => {
             store.dispatch(logoutAction());
             notify.success("goodbye, and thank you for the fish");
+            sessionStorage.removeItem("jwt");
             localStorage.removeItem("jwt");
           }}
         />
