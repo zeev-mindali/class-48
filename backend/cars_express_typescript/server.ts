@@ -13,9 +13,32 @@ import loginRouter from "./Routes/login";
 
 //create server
 const server = express();
+const isAdmin = false;
+
+//configure cors
+//origin => מאיפה מגיעה הבקשה
+//verbs => GET POST DELETE UPDATE PATCH
+//Allowed Headers => Authorization
+//Exposed Headers => Authorization
+//optionsSuccessStatus => 200,204
+
+//use Cors Option
+const corsOptions = {
+    origin: "*", //allow any origin
+    methods: ["GET","POST"], //which methods i will allow
+    allowedHeaders: ["Content-Type","Authorization"], //which headers i will get
+    exposedHeaders: ["Authorization"] //which headers i will expose
+}
+
+const serverCors = {
+    origin: "192.168.60.53",
+    methods: ["POST"],
+    allowedHeaders: ["Content-Type","Authorization"],
+    exposedHeaders: ["Authorization"]
+}
 
 //cors = cross origin research sharing...
-server.use(cors());
+server.use(cors(isAdmin?serverCors:corsOptions));
 
 //how we send the data back (JSON,XML,RAW,String)
 server.use(express.json());
