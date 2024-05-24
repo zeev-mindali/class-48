@@ -23,7 +23,7 @@ loginRouter.post(
         console.log(userData);
       response
         .status(200)
-        .header("Access-Control-Expose-Headers", "Authorization")
+        .header("Access-Control-Expose-Headers", "Authorization") //do i really need it????
         .header("Authorization", userData["jwt"])
         .json(userData);
     } else {
