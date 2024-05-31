@@ -1,7 +1,7 @@
 import { UserCred } from "./../Models/UserCred";
 import { userCred } from "../Routes/login";
 import { createJWT } from "../Utils/jwt";
-import { OkPacket } from "mysql2";
+import { OkPacket, ResultSetHeader } from "mysql2";
 const fs = require("fs");
 import dal_mysql from "../DAL/dal_mysql";
 
@@ -15,28 +15,27 @@ const registerUser = async (user: UserCred) => {
         INSERT INTO users
         Values (0, '${user.userName}', '${user.userPass}','${user.userRole}','${user.userEmail}')
     `;
-    const result:OkPacket = await dal_mysql.execute(sql);
-    console.log(`Created user with id:${result.insertId}`);
-    user.id=+result.insertId;
-
-  } catch (err) {
+    const result: ResultSetHeader = await dal_mysql.execute(sql);
+    console.log(result);
+    user.id = +result.insertId;
+  } catch (err: any) {
     return err;
   }
-//   //check if user exists before saving the user.
-//   let singleUser = userInfo.find(
-//     (item: { userName: string }) => item.userName === user.userName
-//   );
-//   if (singleUser !== undefined) {
-//     console.log(singleUser);
-//     return false;
-//   }
-//   console.log(singleUser);
-//   if (user.userRole === "") {
-//     user.userRole = "Guest";
-//   }
+  //   //check if user exists before saving the user.
+  //   let singleUser = userInfo.find(
+  //     (item: { userName: string }) => item.userName === user.userName
+  //   );
+  //   if (singleUser !== undefined) {
+  //     console.log(singleUser);
+  //     return false;
+  //   }
+  //   console.log(singleUser);
+  //   if (user.userRole === "") {
+  //     user.userRole = "Guest";
+  //   }
   //add the new user to our file
-//   userInfo.push(user);
-//   fs.writeFileSync("users.data", JSON.stringify(userInfo));
+  //   userInfo.push(user);
+  //   fs.writeFileSync("users.data", JSON.stringify(userInfo));
   return "User was created";
 };
 
@@ -100,4 +99,14 @@ const forgotPassword = (userName: string) => {
   //send back the password....
 };
 
-export { registerUser, loginUser, forgotPassword };
+const deleteUser = async (userId: number) => {
+  try {
+    const sql = `DELETE FROM users WHERE id=${userId}`;
+    console.log(sql);
+    await dal_mysql.execute(sql);
+    return true;
+  } catch (err) {
+    console.log(err);
+  }
+};
+export { registerUser, loginUser, forgotPassword, deleteUser };
