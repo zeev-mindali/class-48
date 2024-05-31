@@ -9,6 +9,14 @@ customerRouter.get("/all",async (request:Request,response:Response,next:NextFunc
         //return the response from mysql database as json format
         response.status(200).json(customers);
     } catch (err){
+        next (err); 
+    }
+});
+
+customerRouter.get("/targil1", async(request:Request,response:Response,next:NextFunction)=>{
+    try{        
+        response.status(200).json(await customerLogic.getTargil1())
+    } catch (err){
         next (err);
     }
 })

@@ -10,11 +10,22 @@ const getAllCustomers = async()=>{
     return allCustomers;
 }
 
+const getTargil1 = async()=>{
+    const sql = `
+        SELECT categories.CategoryName, products.ProductName FROM categories
+        INNER JOIN products
+        ON categories.CategoryID = products.CategoryID
+        WHERE categories.CategoryName LIKE '%c%'
+    `;
+
+    const getResult = await dal_mysql.execute(sql);
+    return getResult;
+}
 
 //INSERT EXAMPLES
 
 
 export default {
     getAllCustomers,
-    
+    getTargil1,
 }

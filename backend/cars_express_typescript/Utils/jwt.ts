@@ -31,7 +31,7 @@ const checkJWT = (token:string)=>{
         const checkToken=token.split(' ')[1];
         const decoded = jwt.verify(checkToken,secretKey);
         console.log(decoded);
-        return createJWT(new UserCred(decoded.name,decoded.role,decoded.id));
+        return createJWT(new UserCred(0,decoded.name,decoded.role,decoded.id));
     } catch (err:any) {
         console.log("error: ",err.name);
         return "";

@@ -35,11 +35,8 @@ loginRouter.post(
 loginRouter.post(
   "/registerUser",
   async (request: Request, response: Response, nextFunction: NextFunction) => {
-    if (registerUser(request.body)) {
-      response.status(201).json({ msg: "user was created" });
-    } else {
-      response.status(400).json({ msg: "user already exists" });
-    }
+    let result = await registerUser(request.body)
+      response.status(200).json({ msg: result });
   }
 );
 
