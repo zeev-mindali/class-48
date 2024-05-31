@@ -22,6 +22,7 @@
     "jsonwebtoken": "^9.0.2",
     "loadsh": "^0.0.4",
     "morgan": "^1.10.0",
+    "mysql2": "^3.10.0",
     "ts-node": "^10.9.2"
   },
   "devDependencies": {

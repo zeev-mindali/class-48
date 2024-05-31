@@ -6,6 +6,7 @@ import config from "./Utils/config"
 import carRouter from "./Routes/vehicles";
 import ErrorHandler from "./MiddleWare/routeNotFound";
 import loginRouter from "./Routes/login";
+import customerRouter from "./Routes/customersRouter";
 
 //import ErrorHandler
 //import router 
@@ -52,6 +53,7 @@ server.use(fileUpload({createParentPath: true}));
 //using routes = > http://localhost:8080/api/v1/transport
 server.use("/api/v1/transport", carRouter);
 server.use("/api/v1/login",loginRouter);
+server.use("/api/v1/customer",customerRouter)
 //404 handler
 server.use("*",ErrorHandler);
 

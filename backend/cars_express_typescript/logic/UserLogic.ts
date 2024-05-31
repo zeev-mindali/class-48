@@ -6,7 +6,7 @@ const fs = require("fs");
 const registerUser = (user: UserCred) => {
   let userInfo;
   try {
-    userInfo = JSON.parse(fs.readFileSync("users.data"));
+    userInfo = JSON.parse(fs.readFileSync("users.data")); //writing to file, no validation
   } catch (err) {
     userInfo = [];
   }
