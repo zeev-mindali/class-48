@@ -1,0 +1,31 @@
+{
+  "name": "mybooks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec ts-node server.ts"
+  },
+  "keywords": [],
+  "author": "zeev mindali",
+  "license": "ISC",
+  "dependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express-fileupload": "^1.5.0",
+    "@types/morgan": "^1.9.9",
+    "@types/mysql": "^2.15.26",
+    "axios": "^1.6.8",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "express-fileupload": "^1.5.0",
+    "jsonwebtoken": "^9.0.2",
+    "loadsh": "^0.0.4",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.10.0",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
