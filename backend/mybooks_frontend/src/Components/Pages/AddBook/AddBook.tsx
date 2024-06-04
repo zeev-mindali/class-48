@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import "./AddBook.css";
 import { Author } from "../../Models/Author";
+import axios from "axios";
 
 function AddBook(): JSX.Element {
     const [authors,setAuthors]=useState<Author[]>([]);
     useEffect(()=>{
-        fetch("http://localhost:8080/api/v1/author/all")
-        .then(response=>response.json())
+        axios.get("http://localhost:8080/api/v1/author/all")
+        .then(response=>response.data)
         .then(data=>setAuthors(data));
     },[]);
     return (
