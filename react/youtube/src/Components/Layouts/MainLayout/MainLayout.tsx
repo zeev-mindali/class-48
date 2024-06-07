@@ -1,7 +1,5 @@
-import MainRoute from "../../Routes/MainRoute/MainRoute";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
-import MainMenu from "../MainMenu/MainMenu";
 import "./MainLayout.css";
 
 function MainLayout(): JSX.Element {
@@ -11,10 +9,10 @@ function MainLayout(): JSX.Element {
                 <Header/>
             </header>
             <aside>
-                <MainMenu/>
+                <Footer/>
             </aside>
             <main>
-                <MainRoute/>
+                </>
             </main>
             <footer>
                 <Footer/>
