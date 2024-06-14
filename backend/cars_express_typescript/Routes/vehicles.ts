@@ -19,11 +19,11 @@ carRouter.get(
         //     response.status(401);
         // }
         console.log("car info");
-            response
-            .status(200)
-            .header('Access-Control-Expose-Headers', 'Authorization')
-            //.header("Authorization",jwt)
-            .json(await carInfo(request.params.id));
+        response
+        .status(200)
+        .header('Access-Control-Expose-Headers', 'Authorization')
+        //.header("Authorization",jwt)
+        .json(await carInfo(request.params.id));
     }
 )
 

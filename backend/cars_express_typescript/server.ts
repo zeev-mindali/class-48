@@ -51,6 +51,7 @@ server.use(express.static("upload"));
 server.use(fileUpload({createParentPath: true}));
 
 //using routes = > http://localhost:8080/api/v1/transport
+//http://127.0.0.1:8123/api/v1/transport/cars/6225433
 server.use("/api/v1/transport", carRouter);
 server.use("/api/v1/login",loginRouter);
 server.use("/api/v1/customer",customerRouter)

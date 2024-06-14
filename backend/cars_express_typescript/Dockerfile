@@ -1,5 +1,5 @@
 # which opreation system and node version we shell use...
-FROM node:18.19.0
+FROM node:18-alpine
 
 #Create Application directory (destination)
 WORKDIR /usr/src/app
