@@ -4,6 +4,16 @@ version: '3.8'
 #which services we going to use: mysql(8) phpMyAdmin(lateset)
 #latest -> last version that was published
 services:
+  carsapi:
+    #our image
+    image: mindalizeev/cars-api:latest
+    #our port
+    ports: 
+      - "3000:8080"
+    networks:
+    #name of the network that we are running
+      - mynetwork
+
   mysql:
     #first service mysql
     image: mysql:8
