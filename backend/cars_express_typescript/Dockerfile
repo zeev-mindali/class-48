@@ -30,3 +30,5 @@ CMD ["nodemon","--exec", "ts-node","server.ts"]
 
 #for bulding the docker, just run the command => docker build . -t cars-api
 #for running the docker, just run the command => docker run -p 5050:8080 cars-api
+#push the image to docker hub, so we can use it anywhere in the world :
+#docker push mindalizeev/cars-api:latest      
