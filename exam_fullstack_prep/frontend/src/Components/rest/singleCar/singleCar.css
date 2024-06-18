@@ -1,0 +1,10 @@
+.singleCar {	
+    width:100px;
+}
+
+.carNumber{
+    text-align: center;
+}
+.carInfo{
+    text-align: right;
+}
