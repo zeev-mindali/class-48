@@ -1,0 +1,15 @@
+<div style="text-align: center;">
+    <app-header></app-header>
+    <h1>hello {{classNumber}}</h1>
+    <h2>{{classSlogan}}</h2>
+    <hr/>
+    <h2>{{this.showWhoIsYourBoss()}}</h2>
+    <hr/>
+    <input type="text" name="feelings" [placeholder]="userPlaceHolder"  (input)="onFeelingsUpdate($event)"/>
+    <!-- the page will write, "i am hearing " and the text above-->
+     <br/>
+     {{userResponse}}
+    <br/><hr/>
+    <input type="number" name="age" id="id_age" [(ngModel)]="userAge"/><br/>
+    <h2>you born in : {{2024-userAge}}</h2>
+</div>
