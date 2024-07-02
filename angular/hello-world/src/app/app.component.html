@@ -3,7 +3,7 @@
     <h1>hello {{classNumber}}</h1>
     <h2>{{classSlogan}}</h2>
     <hr/>
-    <h2>{{this.showWhoIsYourBoss()}}</h2>
+    <h1 appMarkAttribute>{{this.showWhoIsYourBoss()}}</h1>
     <hr/>
     <input type="text" name="feelings" [placeholder]="userPlaceHolder"  (input)="onFeelingsUpdate($event)"/>
     <!-- the page will write, "i am hearing " and the text above-->
@@ -11,5 +11,8 @@
      {{userResponse}}
     <br/><hr/>
     <input type="number" name="age" id="id_age" [(ngModel)]="userAge"/><br/>
-    <h2>you born in : {{2024-userAge}}</h2>
+    <h2 appMarkAttribute>you born in : {{2024-userAge}}</h2>
+    <h1 *ngIf="tellLies">Gabriel the smartest person on earth</h1>
+    <h2 *ngIf="youInTheArmyNow; else inClass">Ilan is in the army, hizbalahh beware</h2>
+    <ng-template #inClass>Ilan is in the class</ng-template>
 </div>

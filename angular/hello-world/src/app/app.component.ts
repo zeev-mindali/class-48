@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './mainLayout/header/header.component';
 import { FormsModule } from '@angular/forms';
+import { MarkAttributeDirective } from './dir/mark-attribute.directive';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,HeaderComponent,FormsModule], //telling angular, which components we shell use....
+  imports: [RouterOutlet,HeaderComponent,FormsModule,MarkAttributeDirective,NgIf], //telling angular, which components we shell use....
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -22,6 +24,10 @@ export class AppComponent {
     userResponse = "";
 
     userAge=0;
+
+    tellLies = true;
+
+    youInTheArmyNow=false;
 
     showWhoIsYourBoss(){
         return `hello ${this.bossName} congrts for buying ${this.bossComputer}`;
