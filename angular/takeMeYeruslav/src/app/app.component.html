@@ -1,0 +1,8 @@
+<h1 appCenter>Take me yeruslav</h1><hr/>
+<input type="number" name="girlAge" placeholder="enter girl year of birth" [(ngModel)]="girlYear"/>
+
+<h2 appCenter>{{2024-girlYear}}</h2>
+<hr/>
+<h1 *ngIf="2024-girlYear>19 && 2024-girlYear<31; else notForMe" appCenter appMyWife>Call my Parents</h1>
+<ng-template #notForMe appOutOfBounds>not for me </ng-template>
+<hr/>
