@@ -15,4 +15,7 @@
     <h1 *ngIf="tellLies">Gabriel the smartest person on earth</h1>
     <h2 *ngIf="youInTheArmyNow; else inClass">Ilan is in the army, hizbalahh beware</h2>
     <ng-template #inClass>Ilan is in the class</ng-template>
+    <hr/>
+    <!-- <h1 [ngStyle]="{color: txtColor,background: txtBackground}">I AM THE KING OF THE WORLD !!!!</h1> -->
+     <h1 [ngClass]="{darkModeOn:isDarkMode, darkModeOff:!isDarkMode}">I AM THE KING OF THE WORLD</h1>
 </div>

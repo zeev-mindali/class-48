@@ -1,0 +1,11 @@
+.darkModeOn{
+    background-color: black;
+    color:white;
+    font-weight: bolder;
+}
+
+.darkModeOff{
+    background-color: white;
+    color:green;
+    font-weight: lighter;
+}

@@ -3,12 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './mainLayout/header/header.component';
 import { FormsModule } from '@angular/forms';
 import { MarkAttributeDirective } from './dir/mark-attribute.directive';
-import { NgIf } from '@angular/common';
+import { NgIf, NgStyle , NgClass} from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,HeaderComponent,FormsModule,MarkAttributeDirective,NgIf], //telling angular, which components we shell use....
+  imports: [RouterOutlet,HeaderComponent,FormsModule,MarkAttributeDirective,NgIf,NgStyle,NgClass], //telling angular, which components we shell use....
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -28,6 +28,11 @@ export class AppComponent {
     tellLies = true;
 
     youInTheArmyNow=false;
+
+    isDarkMode = true;
+    // txtColor = this.isDarkMode?"black":"white";
+    // txtBackground = this.isDarkMode?"white":"black";
+
 
     showWhoIsYourBoss(){
         return `hello ${this.bossName} congrts for buying ${this.bossComputer}`;
