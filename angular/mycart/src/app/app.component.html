@@ -2,24 +2,8 @@
     <h2>
         Welcome to {{title}}
     </h2>
-    <div class="user_inputs">
-        <h3>
-            Enter tour product to list:
-        </h3>
-        <div class="input-group px-5">
-            <input type="text" class="form-control" [(ngModel)] = "fruit_input"/>
-            <button class="btn btn-info" (click)="addProduct()">add product</button>
-        </div>    
-    </div>
-
-    <div class="list mt-5 p-5 text-left">
-        <h2>
-            List of products you added
-        </h2>
-        <div class="row">
-            <div class="col-7 border p-2" *ngFor="let item of listFruits_ar">
-                {{item}}
-            </div>
-        </div>
-    </div>
+    <app-user-input (addProdEvent)="addProductFromApp($event)"></app-user-input>
+    <!-- <app-list [listFruits_ar]="listFruits_ar"></app-list> -->
+    <app-list [perot]="listFruits_ar"></app-list>
+    
 </div>
