@@ -1,0 +1,32 @@
+<h1>{{title}} children</h1><hr/>
+<ul>
+    <!-- <li *ngFor="let item of matti_children" [ngClass]="item">
+        {{item}}
+    </li> -->
+    <li *ngFor="let item of matti_children" [ngSwitch]="item">
+        <span *ngSwitchCase="boy" ngClass="boy">
+            {{item}}
+        </span>
+        <span *ngSwitchCase="girl" ngClass="girl">
+            {{item}}
+        </span>
+        <span *ngSwitchDefault ngClass="other">
+            {{item}}
+        </span>
+    </li>
+</ul>
+
+
+<!-- 
+    JS:
+    switch (item){     =  [ngSwitch]="item"
+        case "boy":    =  *ngSwitchCase="boy" 
+            bla bla;   =   {{item}}
+            break;
+        case "girl":   = *ngSwitchCase="girl"
+            bla bla;   =   {{item}}
+            break;
+        default:       =  *ngSwitchDefault
+            bla bla;    
+    }
+-->

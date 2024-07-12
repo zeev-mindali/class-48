@@ -1,0 +1,19 @@
+h1{
+    text-align: center;
+}
+.girl{
+    background-color: red;
+    color:white;
+}
+.boy{
+    background-color: blue;
+    color:white;
+}
+.other{
+    background-color: black;
+    color:white;
+}
+li{
+    list-style-type: none;
+    margin-bottom: 10px;
+}
