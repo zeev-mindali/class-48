@@ -1,0 +1,14 @@
+h1{
+    text-align: center;
+}
+.white{
+    color:black;
+    background-color: white;
+}
+.black{
+    color:white;
+    background-color: black;
+}
+li{
+    list-style-type: none;
+}

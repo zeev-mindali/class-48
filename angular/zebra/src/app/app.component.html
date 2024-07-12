@@ -1,0 +1,12 @@
+<h1>{{title}}</h1><hr/>
+<ul>
+    <!-- <li ngClass="white">{{names_array[0]}}</li>
+    <li ngClass="black">{{names_array[1]}}</li>
+    <li ngClass="white">{{names_array[2]}}</li>
+    <li ngClass="black">{{names_array[3]}}</li>
+    <li ngClass="white">{{names_array[4]}}</li>
+    <li ngClass="black">{{names_array[5]}}</li>
+    <li ngClass="white">{{names_array[6]}}</li>
+    <li ngClass="black">{{names_array[7]}}</li> -->
+    <li *ngFor="let item of names_array;let i=index" [ngClass]="i%2==0?'white':'black'">{{item}}</li>
+</ul>
