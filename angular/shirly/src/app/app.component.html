@@ -1,0 +1,6 @@
+<h1>{{title}}</h1><hr/>
+
+<div [ngClass]="classArray[pointer%classArray.length]">
+    <h1>this is light {{classArray[pointer]}}</h1>
+</div>
+<input type="button" value="next" (click)="changeClass()"/>
