@@ -1,0 +1,13 @@
+<div class="list mt-5 p-5 text-left">
+    <h2>List of product you added</h2>
+    <div class="row">
+        <!-- <div class="col-7 border p-2" *ngFor="let item of listFruits_ar">
+            {{item}}
+        </div> -->
+        <div class="col-7 border p-2" *ngFor="let item of drinks_ar">
+            <h3>{{item.name | uppercase}}</h3><hr/>
+            <div>Price: {{item.price | number: "1.2-2" | currency: "USD"}}</div>
+            <div>Alcohol: {{item.alcohol | percent}}</div>
+            <div>Expired: {{item.expired | date}}</div>
+        </div>
+    </div>
