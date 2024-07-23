@@ -5,6 +5,10 @@ class Config{
     public mySQLuser = 'root';
     public mySQLpassword = '12345678';
     public mySQLdb = 'northwind';
+    
+
+    //for mongoDB
+    public connectionString = "mongodb://localhost:27017/youtube"
 }
 
 const config = new Config();
