@@ -46,7 +46,7 @@ const SongSchema = new Schema<ISongModel>(
             unique: true,
         },
         category: {
-            type: Schema.Types.ObjectId,
+            type: Schema.Types.ObjectId, //foreign key, will point on object id
         }
 
     },{
