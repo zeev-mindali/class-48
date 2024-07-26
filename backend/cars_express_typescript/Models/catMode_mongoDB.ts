@@ -15,7 +15,7 @@ const CatSchema = new Schema<ICatModel>(
             minlength: [ 3, "name too short"], //minimum length and error code
             maxlength: [255, "name too long"], //maximum length and error code
             trim: true, //clear white spaces :zeev      mindali > zeev mindali
-            unique: false //is it unique
+            unique: true //is it unique
         }
     }, {
         versionKey: false, //do not create _v field for versioning
