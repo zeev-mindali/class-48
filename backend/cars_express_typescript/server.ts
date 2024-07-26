@@ -8,8 +8,9 @@ import ErrorHandler from "./MiddleWare/routeNotFound";
 import loginRouter from "./Routes/login";
 import customerRouter from "./Routes/customersRouter";
 import dal__mongodb from "./DAL/dal__mongodb";
-import { addCat } from "./logic/mongoDB_logic";
+import { addCat, addSong, getAllSongs, getPartialSongInfo } from "./logic/mongoDB_logic";
 import { CatModel } from "./Models/catMode_mongoDB";
+import { SongModel } from "./Models/SongMongoDB";
 
 //import ErrorHandler
 //import router 
@@ -65,8 +66,42 @@ server.use("*",ErrorHandler);
 dal__mongodb.connect();
 
 //add new Category
-addCat(new CatModel({name: "pop"}));
+// addCat(new CatModel(
+//     {
+//         name: "pop"
+//     }
+// ));
 
+//add new songs
+// addSong(new SongModel(
+//     {
+//         url: "https://www.youtube.com/watch?v=TOxk7wPma4Y",
+//         title: "הרב פנגר - תעוף על עצמך - שיעור מצחיק עד דמעות!!",
+//         songImg: "https://storage.hidabroot.org/articles_new/274183_tumb_750Xauto.jpg",
+//         videoFile: "https://www.youtube.com/watch?v=TOxk7wPma4Y",
+//         category: "66a343bc5aa55550d8b435e6"
+//     }
+// ))
+
+// addSong(new SongModel(
+//     {
+//         url: "https://www.youtube.com/watch?v=cIuYFCAJ2a8",
+//         title: "Maneskin-Beggin' (CD Audio)",
+//         songImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Maneskin_2018.jpg/220px-Maneskin_2018.jpg",
+//         videoFile: "https://www.youtube.com/watch?v=cIuYFCAJ2a8",
+//         category: "66a344041f8cb6a73038d5d1"
+//     }
+// ))
+
+//get all songs
+// console.log("getting all songs");
+// getAllSongs().then (res=>{
+//     console.log(res);
+// })
+
+getPartialSongInfo().then(res=>{
+    console.log(res);
+})
 //start the server
 server.listen(config.webPort, ()=>{
     console.log (`listing on http://${config.webHost}:${config.webPort}`);
