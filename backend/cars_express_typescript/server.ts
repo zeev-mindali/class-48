@@ -8,6 +8,8 @@ import ErrorHandler from "./MiddleWare/routeNotFound";
 import loginRouter from "./Routes/login";
 import customerRouter from "./Routes/customersRouter";
 import dal__mongodb from "./DAL/dal__mongodb";
+import { addCat } from "./logic/mongoDB_logic";
+import { CatModel } from "./Models/catMode_mongoDB";
 
 //import ErrorHandler
 //import router 
@@ -61,6 +63,9 @@ server.use("*",ErrorHandler);
 
 //make the connection to mongoDB
 dal__mongodb.connect();
+
+//add new Category
+addCat(new CatModel({name: "pop"}));
 
 //start the server
 server.listen(config.webPort, ()=>{
