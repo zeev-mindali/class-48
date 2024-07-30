@@ -1,6 +1,6 @@
 const myUsername = prompt("Please enter your name") || "Anonymous";
 const socket = new WebSocket(
-    `ws://localhost:3000/start_web_socket?username=${myUsername}`
+    `ws://192.168.60.22:3000/start_web_socket?username=${myUsername}`
 );
 
 socket.onmessage = (msg)=>{
