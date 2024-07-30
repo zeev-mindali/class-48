@@ -1,4 +1,5 @@
 const myUsername = prompt("Please enter your name") || "Anonymous";
+//please remmber to change the ip to your computer ip, or the server ip....
 const socket = new WebSocket(
     `ws://192.168.60.22:3000/start_web_socket?username=${myUsername}`
 );
