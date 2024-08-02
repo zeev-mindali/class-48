@@ -50,18 +50,14 @@ router.get("/start_web_socket",async(context)=>{
 
     //broadcast new message if someone sent one
     socket.onmessage = (msg) => {
-        const data = JSON.parse(msg.data);
-        switch(data.event){
-            case "send-message":
-                broadcast(
-                    JSON.stringify({
-                        event: "send-message",
-                        username: socket.username,
-                        message: data.message,
-                    })
-                )
-                break;
-        }
+        console.log(msg);
+        broadcast(
+            JSON.stringify({
+                event:msg.event,
+                target: msg.target,
+                message: msg.message,
+            })
+        )
     }
 });
 
