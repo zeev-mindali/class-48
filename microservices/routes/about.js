@@ -1,7 +1,7 @@
 const express = require('express');
 const properties = require('../package.json');
 
-const aboutRoute = exporessRouter();
+const aboutRoute = express.Router();
 
 aboutRoute.get("/", (req, res)=>{
     const aboutInfo = {
