@@ -3,12 +3,26 @@ const http = require('http');
 
 const weatherRoute = express.Router();
 
-weatherRoute.get("/",(req,res)=>{
-        console.log(__dirname+"/index.html");
-        res.sendFile(__dirname + "/index.html");
-        //res.sendFile("./index.html");
-    }
-);
+// weatherRoute.get("/",(req,res)=>{
+//         console.log(__dirname+"/index.html");
+//         res.sendFile(__dirname + "/index.html");
+//         //res.sendFile("./index.html");
+//     }
+// );
+
+weatherRoute.get("/:city",(req,res)=>{
+    city = req.params.city;
+    const apiKey = "00b3b30cce8d4681b19160421240608";
+    const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
+
+    http.get(url, (response)=>{
+        response.on("data", (myData)=>{
+            const responseData = JSON.parse(myData);
+            res.json(responseData);
+        });
+    });
+
+})
 
 weatherRoute.post("/",(req,res)=>{
     const city = req.body.cityName;
