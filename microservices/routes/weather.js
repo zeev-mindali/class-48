@@ -22,11 +22,13 @@ weatherRoute.post("/",(req,res)=>{
             const temperature = responseData.current.temp_c;
             const weatherDes = responseData.current.condition.text;
             const icon = "https:"+responseData.current.condition.icon;
-            res.write(`<h1>the wather is ${temperature} degree celisuis in ${city} and it's ${weatherDes}</h1>`);
-            res.write(`<img src="${icon}"/>`);
-            res.send();
+            // res.write(`<h1>the wather is ${temperature} degree celisuis in ${city} and it's ${weatherDes}</h1>`);
+            // res.write(`<img src="${icon}"/>`);
+            // res.send();
+            res.json(responseData);
         });
     });
 })
 
 module.exports = weatherRoute;
+
