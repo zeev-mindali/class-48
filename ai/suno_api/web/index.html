@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suno Song creater</title>
+    <style>
+        * {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>song and melody creator</h1>
+    <hr />
+    <input type="text" id="songDesc" placeholder="Please enter song description" />
+    <input type="button" value="send" onClick="getSong()" />
+    <hr />
+    <div id="res">
+
+    </div>
+    <script>
+        const getSong = async () => {
+            const desc = document.getElementById("songDesc").value;
+            const data = {
+                "gpt_description_prompt": desc,
+                "make_instrumental": false,
+                "mv": "chirp-v3-0",
+                "prompt": desc
+            }
+            const response = await fetch("http://localhost:8000/generate/description-mode",{method: post, body:data});
+            let responseData = JSON.parse(response);
+            let clipID = responseData.clips[0].id;
+            let dataArravied = false;
+            let myCheck = setInterval(() => {
+                const audioURL = fetch(`http://localhost:8000/feed/${clipID}`);
+                if (audioURL[0].audio_url.length>5){
+                    document.getElementById("res").innerHTML= `
+                    audio url: <a href=${audioURL[0].audio_url}>play song</a><br/>
+                    video url: <a href=${audioURL[0].video_url}>play vide</a><br/>
+                    `;
+                    
+                    clearInterval(myCheck);
+                }
+            }, 1000);
+            
+        }
+    </script>
+</body>
+
+</html>
