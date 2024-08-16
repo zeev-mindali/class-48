@@ -66,5 +66,23 @@
     $num2 = 20;
 
     //מצאו מי המספר הגבוה ביותר
+    switch ($num1){
+        case ($num1>$num2):
+            echo $num1;
+            break;
+        case ($num1<$num2):
+            echo $num2;
+            break;
+        default:
+            echo $num1;
+    }
+
+    if ($num1>$num2){
+        echo $num1;
+    } else {
+        echo $num2;
+    }
+
+    echo $num1>$num2?$num1:$num2;
     
 ?>
