@@ -1,0 +1,82 @@
+#which version of yml we are using
+version: '3.8'
+
+#which services we going to use: mysql(8) phpMyAdmin(lateset)
+#latest -> last version that was published
+services:
+  carsapi:
+    #our image
+    image: mindalizeev/cars-api:latest
+    #our port
+    ports: 
+      - "3000:8080"
+    networks:
+    #name of the network that we are running
+      - mynetwork
+
+  mysql:
+    #first service mysql
+    image: mysql:8
+    #parameters such as: database,root user, normal user, password, etc...
+    environment:
+      #Root password (master user)
+      MYSQL_ROOT_PASSWORD: rootpassword
+      #Database name
+      MYSQL_DATABASE: mydatabase
+      #regular user name
+      MYSQL_USER: user
+      #mysql password(12345678)
+      MYSQL_PASSWORD: password
+    #Which ports we shell use
+    ports: 
+    #ports to be exposed
+      - "3306:3306"
+    #volumes:
+    #name hdd location for mysql
+    #  - mysql-data:/var/lib/mysql
+    networks:
+    #name of the network that we are running
+      - mynetwork
+    #command: --default-authentication-plugin=mysql_native_password
+
+  #for handling mysql databases table and sql commands, we shell use the phpMyAdmin
+  phpmyadmin:
+    #which image we shell use for phpMyAdmin, if the version is not specified, it will take the last viable version
+    image: phpmyadmin/phpmyadmin
+    #set some parameters to handle the connection to phpmyadmin
+    environment:
+      #host is the name of the services that we using for mysql
+      PMA_HOST: mysql
+      #user name as we write in mysql service
+      PMA_USER: user
+      #user password as we write in mysql password
+      PMA_PASSWORD: password
+    #which ports we are going to use
+    ports:
+      #external port 8080 , phpmyadmin is web server is it's port is 80
+      - "8080:80"
+    depends_on:
+      #depends on mysql service....
+      - mysql
+    networks:
+      #connect my phpmyadmin container to the network
+      - mynetwork
+
+#network settings
+networks:
+  #name of our network as we wrote on the services
+  mynetwork:
+    #behave as a bridge, connect the two service together
+    driver: bridge
+
+#hdd type, where all my data will be saved
+#volumes:
+  #name of data
+#  mysql-data:
+
+
+#to run the docker compose:
+#docker-compose -f cars.yml up -d
+#-f name of docker compose file (yml file)
+#start the containers
+#-d don't show the result, return to command line (cmd)
